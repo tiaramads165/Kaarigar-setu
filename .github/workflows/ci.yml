@@ -127,7 +127,7 @@ jobs:
           semgrep scan --config p/java --config p/python --config p/javascript --config p/owasp-top-ten --config p/secrets --metrics=off --error \
             kaarigarsetu-java/src/main kaarigarsetu-ml-service/app kaarigarsetu-moderator-console/src/main docker docker-compose.yml database
       - name: "Secret scan (gitleaks, config in .gitleaks.toml)"
-        uses: gitleaks/gitleaks-action@v2
+        uses: gitleaks/gitleaks-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_CONFIG: .gitleaks.toml
