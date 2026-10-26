@@ -226,14 +226,14 @@ jobs:
           sed -i 's/^\(DB_OWNER_PASSWORD\|DB_PASSWORD\|ML_INTERNAL_TOKEN\|PHONE_ENC_KEY\|DATA_ENC_KEYS\|PHONE_HMAC_KEY\|OTP_PEPPER\|AUDIT_HMAC_KEY\|KEYSTORE_PASSWORD\)=.*/\1=placeholder/' .env
           docker compose config --quiet
       - name: Scan the images for fixable HIGH/CRITICAL vulnerabilities
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: image
           image-ref: ks-app:ci
           severity: HIGH,CRITICAL
           ignore-unfixed: true
           exit-code: "0"        # report-only for now: base-image findings are tracked, not gating (see docs/SECURITY_RUNBOOK.md)
-      - uses: aquasecurity/trivy-action@0.28.0
+      - uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: image
           image-ref: ks-ml:ci
