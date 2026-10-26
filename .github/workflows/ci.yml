@@ -66,7 +66,7 @@ jobs:
         working-directory: kaarigarsetu-ml-service
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           cache: pip
@@ -89,7 +89,7 @@ jobs:
           distribution: temurin
           java-version: 21
           cache: maven
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - name: Python runtime dependencies (pip-audit against the PyPI advisory database)
@@ -111,7 +111,7 @@ jobs:
           distribution: temurin
           java-version: 21
           cache: maven
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - name: "Java static analysis (SpotBugs + find-sec-bugs; fails on anything not justified in spotbugs-exclude.xml) and software bill of materials"
@@ -168,7 +168,7 @@ jobs:
           distribution: temurin
           java-version: 21
           cache: maven
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
       - name: One-time setup (secrets, database + least-privilege role, signing key, venv, WAR)
