@@ -193,7 +193,7 @@ jobs:
       - name: "Attack-and-defence run (injection, session, access-control, CSRF, credential forgery, audit tampering; fails if any attack succeeds)"
         run: BASE_URL=http://localhost:8090 JAVA_LOG=data/logs/dev.log python3 scripts/security_attack_demo.py
       - name: "OWASP ZAP baseline (passive scan of the running application; report only)"
-        uses: zaproxy/action-baseline@v0.12.0
+        uses: zaproxy/action-baseline@v0.15.0
         with:
           target: http://localhost:8090
           fail_action: false
