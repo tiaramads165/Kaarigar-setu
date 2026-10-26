@@ -49,7 +49,7 @@ jobs:
         working-directory: kaarigarsetu-moderator-console
       - name: Keep the WAR, the console jar and the coverage report
         if: matrix.java == 17
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: java-build
           path: |
@@ -74,7 +74,7 @@ jobs:
       - run: pip install -r requirements-dev.txt
       - name: pytest with a coverage floor
         run: python -m pytest -q --cov=app --cov-report=term --cov-report=xml --cov-fail-under=85
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: ml-coverage
           path: kaarigarsetu-ml-service/coverage.xml
@@ -135,7 +135,7 @@ jobs:
         run: |
           pip install cyclonedx-bom
           cyclonedx-py requirements kaarigarsetu-ml-service/requirements.txt -o ml-bom.json --of JSON
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: sbom
           path: |
@@ -198,7 +198,7 @@ jobs:
           target: http://localhost:8090
           fail_action: false
           allow_issue_writing: false
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: attack-and-defence-results
@@ -257,7 +257,7 @@ jobs:
           cp -R database docker docker-compose.yml .env.example bundle/
           cp -R docs bundle/docs
           tar czf kaarigar-setu-${GITHUB_SHA::8}.tar.gz bundle
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: kaarigar-setu-release
           path: kaarigar-setu-*.tar.gz
