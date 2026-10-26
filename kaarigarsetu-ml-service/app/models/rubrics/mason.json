@@ -1,0 +1,491 @@
+{
+  "trade": "Mason",
+  "criteria": [
+    "brick",
+    "cement",
+    "sand",
+    "wall",
+    "level"
+  ],
+  "testOnly": true,
+  "version": "TEST-ONLY-0.2",
+  "_comment": "TEST ONLY placeholder questions; not an authoritative assessment. Replace with the real rubric (same shape).",
+  "questions": [
+    {
+      "id": 1,
+      "text": {
+        "hi": "आप राजमिस्त्री के रूप में रोज़ किन औज़ारों का इस्तेमाल करते हैं? कम से कम तीन औज़ारों के नाम बताइए।",
+        "en": "Which tools do you use every day as a mason? Name at least three."
+      },
+      "ideal_notes": "TEST ONLY. Common hand tools.",
+      "criteria": [
+        {
+          "id": "q1c1",
+          "description": "Names a trowel",
+          "marks": 2,
+          "keywords": [
+            "करनी",
+            "कन्नी",
+            "trowel"
+          ]
+        },
+        {
+          "id": "q1c2",
+          "description": "Names a level or plumb line",
+          "marks": 2,
+          "keywords": [
+            "लेवल",
+            "level",
+            "साहुल",
+            "plumb",
+            "धागा",
+            "string"
+          ]
+        },
+        {
+          "id": "q1c3",
+          "description": "Names a mixing or carrying tool",
+          "marks": 2,
+          "keywords": [
+            "तसला",
+            "तगारी",
+            "फावड़ा",
+            "shovel",
+            "बाल्टी",
+            "bucket",
+            "pan",
+            "ट्रे"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "tools"
+    },
+    {
+      "id": 2,
+      "text": {
+        "hi": "दीवार बनाने में इस्तेमाल होने वाली किन्हीं दो चीज़ों के नाम बताइए।",
+        "en": "Name two materials used in building a wall."
+      },
+      "ideal_notes": "TEST ONLY. Cement, sand, bricks.",
+      "criteria": [
+        {
+          "id": "q2c1",
+          "description": "Names cement",
+          "marks": 2,
+          "keywords": [
+            "सीमेंट",
+            "cement"
+          ]
+        },
+        {
+          "id": "q2c2",
+          "description": "Names sand, bricks or stone",
+          "marks": 2,
+          "keywords": [
+            "रेत",
+            "बालू",
+            "sand",
+            "ईंट",
+            "brick",
+            "पत्थर",
+            "stone",
+            "गिट्टी",
+            "aggregate"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "materials"
+    },
+    {
+      "id": 3,
+      "text": {
+        "hi": "आपने राजमिस्त्री का काम कहाँ सीखा: आईटीआई, अप्रेंटिसशिप, या किसी सीनियर के साथ? थोड़ा बताइए।",
+        "en": "Where did you learn masonry: ITI, apprenticeship, or with a senior? Briefly explain."
+      },
+      "ideal_notes": "TEST ONLY. Background question.",
+      "criteria": [
+        {
+          "id": "q3c1",
+          "description": "Names a clear way of learning",
+          "marks": 2,
+          "keywords": [
+            "आईटीआई",
+            "iti",
+            "अप्रेंटिस",
+            "apprentice",
+            "सीनियर",
+            "senior",
+            "उस्ताद",
+            "सीखा",
+            "learned"
+          ]
+        },
+        {
+          "id": "q3c2",
+          "description": "Gives time or context",
+          "marks": 2,
+          "keywords": [
+            "साल",
+            "year",
+            "महीने",
+            "month",
+            "years"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "experience"
+    },
+    {
+      "id": 4,
+      "text": {
+        "hi": "दीवार बनाते समय सीमेंट और रेत में पानी मिलाने से क्या होता है? अपने शब्दों में बताइए।",
+        "en": "When building a wall, what does mixing water with cement and sand do? Explain in your own words."
+      },
+      "ideal_notes": "TEST ONLY. Binds and sets.",
+      "criteria": [
+        {
+          "id": "q4c1",
+          "description": "Says it binds or sets hard",
+          "marks": 2,
+          "keywords": [
+            "जम",
+            "सख्त",
+            "सख़्त",
+            "set",
+            "harden",
+            "बांध",
+            "bind",
+            "जोड़",
+            "चिपक"
+          ]
+        },
+        {
+          "id": "q4c2",
+          "description": "Mentions mixing or proportion",
+          "marks": 2,
+          "keywords": [
+            "अनुपात",
+            "ratio",
+            "मिला",
+            "mix",
+            "मिश्रण",
+            "घोल",
+            "paste"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "knowledge"
+    },
+    {
+      "id": 5,
+      "text": {
+        "hi": "अगर कोई ग्राहक नई दीवार बनवाना चाहता है, तो आप उससे क्या-क्या पूछेंगे?",
+        "en": "If a customer wants a new wall built, what would you ask them?"
+      },
+      "ideal_notes": "TEST ONLY. Requirement gathering.",
+      "criteria": [
+        {
+          "id": "q5c1",
+          "description": "Asks about length, height or thickness",
+          "marks": 2,
+          "keywords": [
+            "लंबाई",
+            "length",
+            "ऊंचाई",
+            "height",
+            "मोटाई",
+            "thickness",
+            "माप",
+            "measure",
+            "साइज़",
+            "size"
+          ]
+        },
+        {
+          "id": "q5c2",
+          "description": "Asks about material or budget",
+          "marks": 2,
+          "keywords": [
+            "बजट",
+            "budget",
+            "ईंट",
+            "brick",
+            "सीमेंट",
+            "cement",
+            "कीमत",
+            "price",
+            "पत्थर"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "customer"
+    },
+    {
+      "id": 6,
+      "level": "intermediate",
+      "text": {
+        "hi": "नए बने प्लास्टर या कंक्रीट पर कुछ दिन तक पानी क्यों डाला जाता है (तराई)?",
+        "en": "Why is water sprayed on fresh plaster or concrete for a few days (curing)?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Keeps moisture for strength gain; prevents cracking.",
+      "criteria": [
+        {
+          "id": "q6c1",
+          "description": "Says it makes it stronger or lets it harden properly",
+          "marks": 2,
+          "keywords": [
+            "मजबूत",
+            "strength",
+            "strong",
+            "सख्त",
+            "harden",
+            "पक्का"
+          ]
+        },
+        {
+          "id": "q6c2",
+          "description": "Says it prevents cracks or drying too fast",
+          "marks": 2,
+          "keywords": [
+            "दरार",
+            "crack",
+            "जल्दी सूख",
+            "dry fast",
+            "सूखने"
+          ]
+        },
+        {
+          "id": "q6c3",
+          "description": "Mentions how long or the term curing",
+          "marks": 2,
+          "keywords": [
+            "दिन",
+            "days",
+            "तराई",
+            "curing",
+            "हफ्ते",
+            "week"
+          ]
+        }
+      ],
+      "area": "knowledge"
+    },
+    {
+      "id": 7,
+      "level": "intermediate",
+      "text": {
+        "hi": "बनाई हुई दीवार सीधी और बराबर है या नहीं, यह जाँचने के दो तरीके बताइए।",
+        "en": "Name two ways to check that a wall you built is straight and level."
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Plumb bob / spirit level / string line.",
+      "criteria": [
+        {
+          "id": "q7c1",
+          "description": "Mentions a plumb line for vertical",
+          "marks": 2,
+          "keywords": [
+            "साहुल",
+            "plumb",
+            "खड़ी",
+            "vertical",
+            "सीधी",
+            "straight"
+          ]
+        },
+        {
+          "id": "q7c2",
+          "description": "Mentions a spirit level for horizontal",
+          "marks": 2,
+          "keywords": [
+            "लेवल",
+            "level",
+            "आड़ी",
+            "horizontal",
+            "spirit"
+          ]
+        },
+        {
+          "id": "q7c3",
+          "description": "Mentions a string or line between corners",
+          "marks": 2,
+          "keywords": [
+            "धागा",
+            "string",
+            "line",
+            "लाइन",
+            "डोरी"
+          ]
+        }
+      ],
+      "area": "knowledge"
+    },
+    {
+      "id": 8,
+      "level": "advanced",
+      "text": {
+        "hi": "दीवार में ईंटें एक के ऊपर एक सीधी न रखकर आगे-पीछे खिसकाकर क्यों लगाई जाती हैं?",
+        "en": "Why are bricks in a wall laid overlapping and not stacked straight on top of each other?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Bond: spreads load, avoids straight weak joints/cracks.",
+      "criteria": [
+        {
+          "id": "q8c1",
+          "description": "Says it makes the wall stronger or spreads the load",
+          "marks": 3,
+          "keywords": [
+            "मजबूत",
+            "strong",
+            "भार",
+            "load",
+            "बाँध",
+            "बांध",
+            "bond"
+          ]
+        },
+        {
+          "id": "q8c2",
+          "description": "Says straight joints would crack or be weak",
+          "marks": 3,
+          "keywords": [
+            "दरार",
+            "crack",
+            "जोड़",
+            "joint",
+            "सीधी लाइन",
+            "कमजोर",
+            "weak"
+          ]
+        },
+        {
+          "id": "q8c3",
+          "description": "Names the overlapping pattern",
+          "marks": 3,
+          "keywords": [
+            "ओवरलैप",
+            "overlap",
+            "स्टैगर",
+            "stagger",
+            "आधी ईंट",
+            "half",
+            "बॉन्ड",
+            "आगे-पीछे"
+          ]
+        }
+      ],
+      "area": "knowledge"
+    },
+    {
+      "id": 9,
+      "level": "advanced",
+      "text": {
+        "hi": "प्लास्टर का मसाला जल्दी सूख जाता है या झड़ने लगता है। इसके क्या कारण हो सकते हैं?",
+        "en": "The plaster mortar sets too fast or crumbles. What could have gone wrong?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Wrong ratio, water, dirty sand, old cement, weather.",
+      "criteria": [
+        {
+          "id": "q9c1",
+          "description": "Mentions a wrong mix ratio or too little cement",
+          "marks": 3,
+          "keywords": [
+            "अनुपात",
+            "ratio",
+            "कम सीमेंट",
+            "less cement",
+            "ज्यादा रेत",
+            "more sand"
+          ]
+        },
+        {
+          "id": "q9c2",
+          "description": "Mentions the wrong amount of water or dirty sand",
+          "marks": 3,
+          "keywords": [
+            "पानी",
+            "water",
+            "गंदी",
+            "dirty",
+            "मिट्टी",
+            "clay"
+          ]
+        },
+        {
+          "id": "q9c3",
+          "description": "Mentions old cement or the weather",
+          "marks": 3,
+          "keywords": [
+            "पुराना",
+            "old",
+            "एक्सपायर",
+            "expired",
+            "धूप",
+            "sun",
+            "हवा",
+            "weather",
+            "गर्मी"
+          ]
+        }
+      ],
+      "area": "troubleshooting"
+    },
+    {
+      "id": 10,
+      "level": "intermediate",
+      "text": {
+        "hi": "किसी दीवार की लंबाई और ऊंचाई पता हो तो उसमें कितनी ईंटें लगेंगी, इसका अंदाज़ा आप कैसे लगाएंगे?",
+        "en": "Given a wall's length and height, how do you estimate how many bricks it needs?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Area, brick size, wastage.",
+      "criteria": [
+        {
+          "id": "q10c1",
+          "description": "Works out the wall area from length and height",
+          "marks": 2,
+          "keywords": [
+            "क्षेत्रफल",
+            "area",
+            "लंबाई",
+            "length",
+            "ऊंचाई",
+            "height",
+            "गुणा",
+            "multiply"
+          ]
+        },
+        {
+          "id": "q10c2",
+          "description": "Uses the brick size or bricks per area",
+          "marks": 2,
+          "keywords": [
+            "ईंट का साइज़",
+            "brick size",
+            "प्रति",
+            "per",
+            "गिनती",
+            "count"
+          ]
+        },
+        {
+          "id": "q10c3",
+          "description": "Adds extra for breakage or waste",
+          "marks": 2,
+          "keywords": [
+            "बर्बादी",
+            "waste",
+            "ज्यादा",
+            "extra",
+            "टूट",
+            "breakage"
+          ]
+        }
+      ],
+      "area": "planning"
+    }
+  ],
+  "reviewStatus": "UNVALIDATED DRAFT: questions 6 to 10 were written without a domain expert. Every answer key needs expert review before any real use."
+}

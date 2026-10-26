@@ -1,0 +1,510 @@
+{
+  "trade": "Plumber",
+  "criteria": [
+    "leak",
+    "pipe",
+    "valve",
+    "drain",
+    "fitting"
+  ],
+  "testOnly": true,
+  "version": "TEST-ONLY-0.2",
+  "_comment": "TEST ONLY placeholder questions; not an authoritative assessment. Replace with the real rubric (same shape).",
+  "questions": [
+    {
+      "id": 1,
+      "text": {
+        "hi": "आप एक प्लंबर के रूप में रोज़ किन औज़ारों का इस्तेमाल करते हैं? कम से कम तीन औज़ारों के नाम बताइए।",
+        "en": "Which tools do you use every day as a plumber? Name at least three."
+      },
+      "ideal_notes": "TEST ONLY. Common hand tools.",
+      "criteria": [
+        {
+          "id": "q1c1",
+          "description": "Names a pipe wrench or spanner",
+          "marks": 2,
+          "keywords": [
+            "पाना",
+            "रिंच",
+            "wrench",
+            "spanner"
+          ]
+        },
+        {
+          "id": "q1c2",
+          "description": "Names a hacksaw or pipe cutter",
+          "marks": 2,
+          "keywords": [
+            "आरी",
+            "hacksaw",
+            "कटर",
+            "cutter"
+          ]
+        },
+        {
+          "id": "q1c3",
+          "description": "Names tape or sealant",
+          "marks": 2,
+          "keywords": [
+            "टेप",
+            "tape",
+            "सीलेंट",
+            "sealant"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "tools"
+    },
+    {
+      "id": 2,
+      "text": {
+        "hi": "पाइप किन-किन चीज़ों के बने होते हैं? कम से कम दो प्रकार बताइए।",
+        "en": "What materials are pipes made of? Name at least two kinds."
+      },
+      "ideal_notes": "TEST ONLY. Pipe materials.",
+      "criteria": [
+        {
+          "id": "q2c1",
+          "description": "Names a plastic pipe type",
+          "marks": 3,
+          "keywords": [
+            "पीवीसी",
+            "pvc",
+            "cpvc",
+            "प्लास्टिक",
+            "plastic"
+          ]
+        },
+        {
+          "id": "q2c2",
+          "description": "Names a metal pipe type",
+          "marks": 3,
+          "keywords": [
+            "लोहा",
+            "gi",
+            "तांबा",
+            "तांबे",
+            "copper",
+            "स्टील",
+            "steel"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "materials"
+    },
+    {
+      "id": 3,
+      "text": {
+        "hi": "आपने प्लंबर का काम कहां से सीखा? आईटीआई, अप्रेंटिसशिप, या किसी सीनियर के साथ? संक्षेप में बताइए।",
+        "en": "Where did you learn plumbing: ITI, apprenticeship, or with a senior? Briefly explain."
+      },
+      "ideal_notes": "TEST ONLY. Background question.",
+      "criteria": [
+        {
+          "id": "q3c1",
+          "description": "Names a clear way of learning",
+          "marks": 3,
+          "keywords": [
+            "आईटीआई",
+            "iti",
+            "अप्रेंटिस",
+            "apprentice",
+            "सीनियर",
+            "senior",
+            "उस्ताद",
+            "सीखा",
+            "learned"
+          ]
+        },
+        {
+          "id": "q3c2",
+          "description": "Gives time or context",
+          "marks": 3,
+          "keywords": [
+            "साल",
+            "year",
+            "महीने",
+            "month",
+            "years"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "experience"
+    },
+    {
+      "id": 4,
+      "text": {
+        "hi": "घर की छत पर लगी पानी की टंकी का क्या काम होता है, अपने शब्दों में बताइए।",
+        "en": "In your own words, what is the water tank on a house roof for?"
+      },
+      "ideal_notes": "TEST ONLY. Stores water, supplies taps by gravity.",
+      "criteria": [
+        {
+          "id": "q4c1",
+          "description": "Says it stores water",
+          "marks": 3,
+          "keywords": [
+            "स्टोर",
+            "store",
+            "जमा",
+            "भरा",
+            "storage"
+          ]
+        },
+        {
+          "id": "q4c2",
+          "description": "Says it supplies water to taps or the house",
+          "marks": 3,
+          "keywords": [
+            "सप्लाई",
+            "supply",
+            "नल",
+            "tap",
+            "घर"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "knowledge"
+    },
+    {
+      "id": 5,
+      "text": {
+        "hi": "अगर कोई ग्राहक नया नल लगवाना चाहे तो आप उनसे कौन सी बातें पूछेंगे?",
+        "en": "If a customer wants a new tap fitted, what would you ask them?"
+      },
+      "ideal_notes": "TEST ONLY. Requirement gathering, not technical procedure.",
+      "criteria": [
+        {
+          "id": "q5c1",
+          "description": "Asks about location, size or type",
+          "marks": 3,
+          "keywords": [
+            "जगह",
+            "location",
+            "साइज़",
+            "size",
+            "प्रकार",
+            "type",
+            "कहां",
+            "कौन सा"
+          ]
+        },
+        {
+          "id": "q5c2",
+          "description": "Asks about budget or the old fitting",
+          "marks": 3,
+          "keywords": [
+            "बजट",
+            "budget",
+            "पुराना",
+            "old",
+            "कीमत",
+            "price"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "customer"
+    },
+    {
+      "id": 6,
+      "level": "intermediate",
+      "text": {
+        "hi": "वाल्व का क्या काम होता है? दो तरह के वाल्व के नाम बताइए और यह भी कि वे कहाँ लगते हैं।",
+        "en": "What does a valve do? Name two kinds of valve and say where they are fitted."
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Controls flow; gate, ball, non-return, float, etc.",
+      "criteria": [
+        {
+          "id": "q6c1",
+          "description": "Says a valve controls, stops or opens the flow",
+          "marks": 2,
+          "keywords": [
+            "बहाव",
+            "flow",
+            "रोक",
+            "stop",
+            "कंट्रोल",
+            "control",
+            "बंद",
+            "खोल"
+          ]
+        },
+        {
+          "id": "q6c2",
+          "description": "Names kinds of valve",
+          "marks": 2,
+          "keywords": [
+            "गेट",
+            "gate",
+            "बॉल",
+            "ball",
+            "नॉन-रिटर्न",
+            "non-return",
+            "एंगल",
+            "angle",
+            "फ्लोट",
+            "float"
+          ]
+        },
+        {
+          "id": "q6c3",
+          "description": "Says where valves are fitted",
+          "marks": 2,
+          "keywords": [
+            "टंकी",
+            "tank",
+            "लाइन",
+            "line",
+            "पाइप",
+            "pipe",
+            "बाथरूम",
+            "bathroom",
+            "मीटर"
+          ]
+        }
+      ],
+      "area": "knowledge"
+    },
+    {
+      "id": 7,
+      "level": "intermediate",
+      "text": {
+        "hi": "एक नल पूरी तरह बंद करने के बाद भी टपकता रहता है। इसके क्या कारण हो सकते हैं और आप क्या करेंगे?",
+        "en": "A tap keeps dripping even when fully closed. What could be the cause and what would you do?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Worn washer/seal/seat; replace.",
+      "criteria": [
+        {
+          "id": "q7c1",
+          "description": "Names a worn washer, seal or rubber",
+          "marks": 2,
+          "keywords": [
+            "वॉशर",
+            "washer",
+            "रबर",
+            "rubber",
+            "सील",
+            "seal",
+            "घिस",
+            "worn",
+            "पुराना"
+          ]
+        },
+        {
+          "id": "q7c2",
+          "description": "Says to replace or repair it",
+          "marks": 2,
+          "keywords": [
+            "बदल",
+            "replace",
+            "नया",
+            "new",
+            "बदलना",
+            "मरम्मत"
+          ]
+        },
+        {
+          "id": "q7c3",
+          "description": "Mentions the seat, spindle or cartridge",
+          "marks": 2,
+          "keywords": [
+            "सीट",
+            "seat",
+            "कार्ट्रिज",
+            "cartridge",
+            "स्पिंडल",
+            "spindle"
+          ]
+        }
+      ],
+      "area": "troubleshooting"
+    },
+    {
+      "id": 8,
+      "level": "advanced",
+      "text": {
+        "hi": "ऊपर की मंज़िल के नलों में पानी का दबाव बहुत कम है। इसके संभावित कारण क्या हो सकते हैं?",
+        "en": "The water pressure at taps on the upper floor is very low. What could be the possible reasons?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Tank height/level, blockage or scale, leaks or partly closed valves.",
+      "criteria": [
+        {
+          "id": "q8c1",
+          "description": "Mentions the tank height, level or low supply",
+          "marks": 3,
+          "keywords": [
+            "टंकी",
+            "tank",
+            "ऊंचाई",
+            "height",
+            "लेवल",
+            "level",
+            "कम पानी",
+            "low"
+          ]
+        },
+        {
+          "id": "q8c2",
+          "description": "Mentions a blockage, scale or rust in the pipe",
+          "marks": 3,
+          "keywords": [
+            "जाम",
+            "block",
+            "गंदगी",
+            "dirt",
+            "जंग",
+            "rust",
+            "कचरा",
+            "choke",
+            "चोक",
+            "scale"
+          ]
+        },
+        {
+          "id": "q8c3",
+          "description": "Mentions a leak or a partly closed valve",
+          "marks": 3,
+          "keywords": [
+            "लीकेज",
+            "leak",
+            "वाल्व",
+            "valve",
+            "आधा बंद",
+            "partly",
+            "रिसाव"
+          ]
+        }
+      ],
+      "area": "troubleshooting"
+    },
+    {
+      "id": 9,
+      "level": "advanced",
+      "text": {
+        "hi": "एक नाली जाम हो गई है। जाम कहाँ है यह आप कैसे पता करेंगे और उसे कैसे खोलेंगे?",
+        "en": "A drain is blocked. How do you find where the blockage is and how do you clear it?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Locate via traps/chambers/affected fixtures; rods, plunger, cleaning; cause.",
+      "criteria": [
+        {
+          "id": "q9c1",
+          "description": "Explains how to locate the blockage",
+          "marks": 3,
+          "keywords": [
+            "ट्रैप",
+            "trap",
+            "चैंबर",
+            "chamber",
+            "जगह",
+            "कहाँ",
+            "location",
+            "कौन सी"
+          ]
+        },
+        {
+          "id": "q9c2",
+          "description": "Names a clearing method or tool",
+          "marks": 3,
+          "keywords": [
+            "रॉड",
+            "rod",
+            "प्लंजर",
+            "plunger",
+            "स्नेक",
+            "snake",
+            "जेट",
+            "jet",
+            "सफाई",
+            "clean"
+          ]
+        },
+        {
+          "id": "q9c3",
+          "description": "Names a usual cause of blockage",
+          "marks": 3,
+          "keywords": [
+            "बाल",
+            "hair",
+            "कचरा",
+            "waste",
+            "चर्बी",
+            "grease",
+            "तेल",
+            "oil",
+            "जाली",
+            "strainer",
+            "मिट्टी"
+          ]
+        }
+      ],
+      "area": "troubleshooting"
+    },
+    {
+      "id": 10,
+      "level": "intermediate",
+      "text": {
+        "hi": "एक नए बाथरूम के लिए पाइप और फिटिंग का हिसाब आप कैसे लगाएंगे?",
+        "en": "How would you plan and estimate the pipes and fittings for a new bathroom?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Measure, list fittings, add extra and cost.",
+      "criteria": [
+        {
+          "id": "q10c1",
+          "description": "Measures distances or works from a drawing",
+          "marks": 2,
+          "keywords": [
+            "नाप",
+            "measure",
+            "दूरी",
+            "distance",
+            "ड्रॉइंग",
+            "drawing",
+            "नक्शा",
+            "plan",
+            "लंबाई"
+          ]
+        },
+        {
+          "id": "q10c2",
+          "description": "Lists the fittings needed",
+          "marks": 2,
+          "keywords": [
+            "एल्बो",
+            "elbow",
+            "टी",
+            "tee",
+            "कपलिंग",
+            "coupling",
+            "फिटिंग",
+            "fitting",
+            "यूनियन",
+            "union"
+          ]
+        },
+        {
+          "id": "q10c3",
+          "description": "Adds extra and works out the cost",
+          "marks": 2,
+          "keywords": [
+            "ज्यादा",
+            "extra",
+            "कीमत",
+            "cost",
+            "price",
+            "रेट",
+            "लागत",
+            "मज़दूरी",
+            "labour"
+          ]
+        }
+      ],
+      "area": "planning"
+    }
+  ],
+  "reviewStatus": "UNVALIDATED DRAFT: questions 6 to 10 were written without a domain expert. Every answer key needs expert review before any real use."
+}

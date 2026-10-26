@@ -1,0 +1,495 @@
+{
+  "trade": "Electrician",
+  "criteria": [
+    "safety",
+    "circuit",
+    "voltage",
+    "wire",
+    "breaker"
+  ],
+  "testOnly": true,
+  "version": "TEST-ONLY-0.2",
+  "_comment": "TEST ONLY placeholder questions so the pipeline can run before the real rubric is supplied. Not an authoritative assessment and not safety content. Replace with the real rubric (same shape).",
+  "questions": [
+    {
+      "id": 1,
+      "text": {
+        "hi": "आप एक इलेक्ट्रीशियन के रूप में रोज़ किन औज़ारों का इस्तेमाल करते हैं? कम से कम तीन औज़ारों के नाम बताइए।",
+        "en": "Which tools do you use every day as an electrician? Name at least three."
+      },
+      "ideal_notes": "TEST ONLY. Looks for common hand tools being named.",
+      "criteria": [
+        {
+          "id": "q1c1",
+          "description": "Names a screwdriver or similar",
+          "marks": 2,
+          "keywords": [
+            "पेचकस",
+            "screwdriver",
+            "स्क्रू ड्राइवर"
+          ]
+        },
+        {
+          "id": "q1c2",
+          "description": "Names pliers or a wire cutter",
+          "marks": 2,
+          "keywords": [
+            "प्लायर",
+            "plier",
+            "pliers",
+            "कटर",
+            "cutter"
+          ]
+        },
+        {
+          "id": "q1c3",
+          "description": "Names a tester",
+          "marks": 2,
+          "keywords": [
+            "टेस्टर",
+            "tester"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "tools"
+    },
+    {
+      "id": 2,
+      "text": {
+        "hi": "काम में इस्तेमाल होने वाले किन्हीं दो अलग-अलग तरह के तारों के नाम और उनका सामान्य उपयोग बताइए।",
+        "en": "Name any two different kinds of wire used in your work and one general use of each."
+      },
+      "ideal_notes": "TEST ONLY. Two wire types and one general use.",
+      "criteria": [
+        {
+          "id": "q2c1",
+          "description": "Names at least two kinds of wire",
+          "marks": 2,
+          "keywords": [
+            "ताँबे",
+            "तांबे",
+            "copper",
+            "एल्यूमिनियम",
+            "aluminium",
+            "aluminum",
+            "पीवीसी",
+            "pvc"
+          ]
+        },
+        {
+          "id": "q2c2",
+          "description": "Explains a general use of one wire",
+          "marks": 2,
+          "keywords": [
+            "वायरिंग",
+            "wiring",
+            "घर",
+            "house",
+            "इस्तेमाल",
+            "use"
+          ]
+        },
+        {
+          "id": "q2c3",
+          "description": "Answer is clear and relevant",
+          "marks": 2,
+          "keywords": [
+            "तार",
+            "वायर",
+            "wire"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "materials"
+    },
+    {
+      "id": 3,
+      "text": {
+        "hi": "आपने इलेक्ट्रीशियन का काम कहां से सीखा? आईटीआई, अप्रेंटिसशिप, या किसी सीनियर के साथ? संक्षेप में बताइए।",
+        "en": "Where did you learn electrician work: ITI, apprenticeship, or with a senior? Briefly explain."
+      },
+      "ideal_notes": "TEST ONLY. Background question.",
+      "criteria": [
+        {
+          "id": "q3c1",
+          "description": "Names a clear way of learning",
+          "marks": 3,
+          "keywords": [
+            "आईटीआई",
+            "iti",
+            "अप्रेंटिस",
+            "apprentice",
+            "सीनियर",
+            "senior",
+            "उस्ताद",
+            "सीखा",
+            "learned"
+          ]
+        },
+        {
+          "id": "q3c2",
+          "description": "Gives time or context",
+          "marks": 3,
+          "keywords": [
+            "साल",
+            "year",
+            "महीने",
+            "month",
+            "years"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "experience"
+    },
+    {
+      "id": 4,
+      "text": {
+        "hi": "घर में बिजली का मीटर क्या काम करता है, अपने शब्दों में समझाइए।",
+        "en": "In your own words, what does the electricity meter at home do?"
+      },
+      "ideal_notes": "TEST ONLY. Meter measures consumption; used for billing.",
+      "criteria": [
+        {
+          "id": "q4c1",
+          "description": "Says the meter measures electricity consumption",
+          "marks": 3,
+          "keywords": [
+            "खपत",
+            "नाप",
+            "माप",
+            "यूनिट",
+            "unit",
+            "consumption",
+            "measure"
+          ]
+        },
+        {
+          "id": "q4c2",
+          "description": "Mentions its role in billing",
+          "marks": 3,
+          "keywords": [
+            "बिल",
+            "bill",
+            "पैसे",
+            "charge"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "knowledge"
+    },
+    {
+      "id": 5,
+      "text": {
+        "hi": "एसी और डीसी करंट में क्या अंतर है, अपने शब्दों में बताइए।",
+        "en": "In your own words, what is the difference between AC and DC current?"
+      },
+      "ideal_notes": "TEST ONLY. AC alternates; DC flows one way; one example each.",
+      "criteria": [
+        {
+          "id": "q5c1",
+          "description": "Says AC changes direction and DC flows one way",
+          "marks": 3,
+          "keywords": [
+            "दिशा",
+            "direction",
+            "alternat",
+            "बदल"
+          ]
+        },
+        {
+          "id": "q5c2",
+          "description": "Gives an example of each",
+          "marks": 3,
+          "keywords": [
+            "बैटरी",
+            "battery",
+            "मेन्स",
+            "mains",
+            "घर",
+            "सॉकेट",
+            "socket"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "customer"
+    },
+    {
+      "id": 6,
+      "level": "intermediate",
+      "text": {
+        "hi": "वोल्ट, एम्पीयर और वाट किसे नापते हैं? तीनों को अपने शब्दों में बताइए।",
+        "en": "What do volt, ampere and watt measure? Explain each in your own words."
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Voltage = electrical pressure, ampere = current flow, watt = power.",
+      "criteria": [
+        {
+          "id": "q6c1",
+          "description": "Explains volt as voltage / electrical pressure",
+          "marks": 2,
+          "keywords": [
+            "वोल्टेज",
+            "voltage",
+            "दबाव",
+            "pressure",
+            "potential",
+            "विभव"
+          ]
+        },
+        {
+          "id": "q6c2",
+          "description": "Explains ampere as current / flow",
+          "marks": 2,
+          "keywords": [
+            "करंट",
+            "current",
+            "धारा",
+            "प्रवाह",
+            "बहाव",
+            "flow"
+          ]
+        },
+        {
+          "id": "q6c3",
+          "description": "Explains watt as power / consumption",
+          "marks": 2,
+          "keywords": [
+            "पावर",
+            "power",
+            "शक्ति",
+            "खपत",
+            "consumption"
+          ]
+        }
+      ],
+      "area": "knowledge"
+    },
+    {
+      "id": 7,
+      "level": "intermediate",
+      "text": {
+        "hi": "मल्टीमीटर से आप क्या-क्या नाप सकते हैं? कम से कम दो चीज़ें बताइए और यह भी कि इसे कब इस्तेमाल करते हैं।",
+        "en": "What can you measure with a multimeter? Name at least two things and say when you would use it."
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Voltage, current, resistance, continuity; used to find faults.",
+      "criteria": [
+        {
+          "id": "q7c1",
+          "description": "Names voltage",
+          "marks": 2,
+          "keywords": [
+            "वोल्टेज",
+            "voltage",
+            "वोल्ट"
+          ]
+        },
+        {
+          "id": "q7c2",
+          "description": "Names current, resistance or continuity",
+          "marks": 2,
+          "keywords": [
+            "करंट",
+            "current",
+            "एम्पीयर",
+            "रेसिस्टेंस",
+            "resistance",
+            "ओम",
+            "कंटीन्युटी",
+            "continuity",
+            "बीप"
+          ]
+        },
+        {
+          "id": "q7c3",
+          "description": "Says it is used to find a fault or problem",
+          "marks": 2,
+          "keywords": [
+            "खराबी",
+            "fault",
+            "problem",
+            "दिक्कत",
+            "प्रॉब्लम",
+            "टूटा",
+            "broken",
+            "पता"
+          ]
+        }
+      ],
+      "area": "tools"
+    },
+    {
+      "id": 8,
+      "level": "advanced",
+      "text": {
+        "hi": "एक ग्राहक कहता है कि उसकी छत का पंखा नहीं चल रहा। समस्या ढूंढने के लिए आप कौन-कौन से कदम किस क्रम में उठाएंगे?",
+        "en": "A customer says the ceiling fan is not running. What steps would you take, and in what order, to find the problem?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. General troubleshooting approach: symptoms, supply/switch/regulator, instrument or part replacement.",
+      "criteria": [
+        {
+          "id": "q8c1",
+          "description": "Starts by asking about or observing the symptoms",
+          "marks": 3,
+          "keywords": [
+            "पूछ",
+            "ask",
+            "observe",
+            "symptom",
+            "आवाज़",
+            "लक्षण",
+            "कब से"
+          ]
+        },
+        {
+          "id": "q8c2",
+          "description": "Looks at the switch, regulator or supply",
+          "marks": 3,
+          "keywords": [
+            "स्विच",
+            "switch",
+            "रेगुलेटर",
+            "regulator",
+            "सप्लाई",
+            "supply",
+            "बिजली आ रही"
+          ]
+        },
+        {
+          "id": "q8c3",
+          "description": "Narrows down with an instrument or replaces the faulty part",
+          "marks": 3,
+          "keywords": [
+            "टेस्टर",
+            "tester",
+            "मल्टीमीटर",
+            "multimeter",
+            "बदल",
+            "replace",
+            "कैपेसिटर",
+            "capacitor"
+          ]
+        }
+      ],
+      "area": "troubleshooting"
+    },
+    {
+      "id": 9,
+      "level": "advanced",
+      "text": {
+        "hi": "किसी नए कमरे की वायरिंग शुरू करने से पहले आप यह कैसे तय करेंगे कि कितना तार चाहिए?",
+        "en": "Before you start wiring a new room, how would you work out how much wire you need?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Measure route, count points/loads, add margin.",
+      "criteria": [
+        {
+          "id": "q9c1",
+          "description": "Measures the room or the wire route",
+          "marks": 3,
+          "keywords": [
+            "नाप",
+            "measure",
+            "लंबाई",
+            "length",
+            "दूरी",
+            "distance",
+            "मीटर"
+          ]
+        },
+        {
+          "id": "q9c2",
+          "description": "Counts the points and fittings",
+          "marks": 3,
+          "keywords": [
+            "पॉइंट",
+            "point",
+            "लाइट",
+            "light",
+            "पंखा",
+            "fan",
+            "सॉकेट",
+            "socket",
+            "गिनती",
+            "count"
+          ]
+        },
+        {
+          "id": "q9c3",
+          "description": "Adds extra for bends, joints or waste",
+          "marks": 3,
+          "keywords": [
+            "ज्यादा",
+            "extra",
+            "margin",
+            "बचत",
+            "buffer",
+            "अतिरिक्त",
+            "बेंड",
+            "bend"
+          ]
+        }
+      ],
+      "area": "planning"
+    },
+    {
+      "id": 10,
+      "level": "intermediate",
+      "text": {
+        "hi": "ग्राहक शिकायत करता है कि आपका किया हुआ काम एक हफ़्ते बाद ही ठीक से नहीं चल रहा। आप क्या करेंगे?",
+        "en": "A customer complains that the work you did stopped working properly a week later. What do you do?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Listen, find the cause, fix, take responsibility.",
+      "criteria": [
+        {
+          "id": "q10c1",
+          "description": "Listens or asks what happened and goes to see it",
+          "marks": 2,
+          "keywords": [
+            "सुनता",
+            "listen",
+            "पूछ",
+            "ask",
+            "जाकर",
+            "visit",
+            "देखने",
+            "जाऊंगा"
+          ]
+        },
+        {
+          "id": "q10c2",
+          "description": "Finds the cause and fixes it",
+          "marks": 2,
+          "keywords": [
+            "कारण",
+            "cause",
+            "ठीक",
+            "fix",
+            "repair",
+            "सुधार"
+          ]
+        },
+        {
+          "id": "q10c3",
+          "description": "Takes responsibility and explains to the customer",
+          "marks": 2,
+          "keywords": [
+            "जिम्मेदारी",
+            "responsibility",
+            "समझा",
+            "explain",
+            "माफ",
+            "sorry",
+            "गारंटी",
+            "guarantee",
+            "warranty"
+          ]
+        }
+      ],
+      "area": "customer"
+    }
+  ],
+  "reviewStatus": "UNVALIDATED DRAFT: questions 6 to 10 were written without a domain expert. Every answer key needs expert review before any real use."
+}

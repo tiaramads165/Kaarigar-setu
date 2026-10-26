@@ -1,0 +1,263 @@
+# Build -> unit tests -> dependency vulnerability scan -> end-to-end -> artifacts.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  java:
+    name: Java tests (JDK ${{ matrix.java }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        java: [17, 21]        # 17 is the target runtime; 21 is what developers build with
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: ks_test
+          POSTGRES_PASSWORD: ks_test
+          POSTGRES_DB: ks_ci_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U ks_test -d ks_ci_test" --health-interval 5s --health-timeout 3s --health-retries 20
+    env:
+      TEST_DB_URL: jdbc:postgresql://localhost:5432/ks_ci_test     # must end in _test: the tests wipe it
+      TEST_DB_USER: ks_test
+      TEST_DB_PASSWORD: ks_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+          cache: maven
+      - name: Build and test the web application (unit + database integration + SQL-injection fuzz + XSS guards)
+        run: mvn -B verify
+        working-directory: kaarigarsetu-java
+      - name: Build and test the JavaFX moderator console
+        run: mvn -B verify
+        working-directory: kaarigarsetu-moderator-console
+      - name: Keep the WAR, the console jar and the coverage report
+        if: matrix.java == 17
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-build
+          path: |
+            kaarigarsetu-java/target/*.war
+            kaarigarsetu-moderator-console/target/kaarigarsetu-moderator-console.jar
+            kaarigarsetu-java/target/site/jacoco
+          if-no-files-found: error
+
+  ml:
+    name: ML service tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: kaarigarsetu-ml-service
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: kaarigarsetu-ml-service/requirements*.txt
+      - run: pip install -r requirements-dev.txt
+      - name: pytest with a coverage floor
+        run: python -m pytest -q --cov=app --cov-report=term --cov-report=xml --cov-fail-under=85
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ml-coverage
+          path: kaarigarsetu-ml-service/coverage.xml
+
+  dependency-scan:
+    name: Dependency vulnerability scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Python runtime dependencies (pip-audit against the PyPI advisory database)
+        run: |
+          pip install pip-audit==2.10.0
+          pip-audit -r kaarigarsetu-ml-service/requirements.txt --progress-spinner off
+      - name: Maven runtime dependencies (OSV database; a failed lookup fails the scan)
+        run: python3 scripts/osv_scan_maven.py
+
+  sast:
+    name: Static analysis, secret scan and SBOM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0              # gitleaks also reads the history
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: "Java static analysis (SpotBugs + find-sec-bugs; fails on anything not justified in spotbugs-exclude.xml) and software bill of materials"
+        run: mvn -B -Psast -DskipTests compile spotbugs:check cyclonedx:makeAggregateBom
+        working-directory: kaarigarsetu-java
+      - name: "Python static analysis (Bandit, medium severity and above, production code only)"
+        run: |
+          pip install bandit==1.9.4
+          bandit -q -r kaarigarsetu-ml-service/app -ll
+      - name: "Multi-language rules (Semgrep: Java, Python, JavaScript, OWASP Top 10, secrets; fails on any finding)"
+        run: |
+          pip install semgrep==1.181.0
+          semgrep scan --config p/java --config p/python --config p/javascript --config p/owasp-top-ten --config p/secrets --metrics=off --error \
+            kaarigarsetu-java/src/main kaarigarsetu-ml-service/app kaarigarsetu-moderator-console/src/main docker docker-compose.yml database
+      - name: "Secret scan (gitleaks, config in .gitleaks.toml)"
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_CONFIG: .gitleaks.toml
+      - name: "Python software bill of materials"
+        run: |
+          pip install cyclonedx-bom
+          cyclonedx-py requirements kaarigarsetu-ml-service/requirements.txt -o ml-bom.json --of JSON
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: |
+            kaarigarsetu-java/target/bom.json
+            ml-bom.json
+          if-no-files-found: error
+
+  e2e:
+    name: End-to-end (worker to credential, fraud to moderator, erasure)
+    runs-on: ubuntu-latest
+    needs: [java, ml]
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 3s --health-retries 20
+    env:
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      DB_NAME: ks_ci
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: One-time setup (secrets, database + least-privilege role, signing key, venv, WAR)
+        run: ./scripts/dev-setup.sh
+        env:
+          SKIP_WHISPER: "1"            # CI runs the scripted checks with the labelled test-fixture transcriber, not a 500 MB model
+          STT_PROVIDER: stub
+      - name: Start the ML service and Tomcat
+        run: |
+          mkdir -p data/logs
+          nohup ./scripts/dev.sh > data/logs/dev.log 2>&1 &
+          for i in $(seq 1 80); do curl -fs http://localhost:8090/health >/dev/null 2>&1 && exit 0; sleep 3; done
+          cat data/logs/dev.log; exit 1
+      - name: Python packages for the scripted checks (reads the encrypted audit file)
+        run: python -m pip install cryptography
+      - name: Browser proof-of-work code against Node's SHA-256
+        run: node scripts/pow_js_check.js
+      - name: Run the scripted end-to-end checks
+        run: JAVA_LOG=data/logs/dev.log python3 scripts/e2e.py
+      - name: Everything stored is encrypted (every sealed column, the credential files and the audit file; fails if anything is plain)
+        run: ./scripts/seal-at-rest.sh check
+      - name: "Attack-and-defence run (injection, session, access-control, CSRF, credential forgery, audit tampering; fails if any attack succeeds)"
+        run: BASE_URL=http://localhost:8090 JAVA_LOG=data/logs/dev.log python3 scripts/security_attack_demo.py
+      - name: "OWASP ZAP baseline (passive scan of the running application; report only)"
+        uses: zaproxy/action-baseline@v0.12.0
+        with:
+          target: http://localhost:8090
+          fail_action: false
+          allow_issue_writing: false
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: attack-and-defence-results
+          path: |
+            docs/PENTEST_RESULTS.md
+            docs/evidence/pentest_results.json
+          if-no-files-found: ignore
+      - name: Server log on failure
+        if: failure()
+        run: tail -n 200 data/logs/dev.log
+
+  images:
+    name: Container images build and scan
+    runs-on: ubuntu-latest
+    needs: [java, ml, dependency-scan]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the application image (also proves the Dockerfile and docker/ files are consistent)
+        run: docker build -f kaarigarsetu-java/Dockerfile -t ks-app:ci .
+      - name: Build the ML image
+        run: docker build -t ks-ml:ci kaarigarsetu-ml-service
+      - name: Validate the compose file
+        run: |
+          cp .env.example .env
+          sed -i 's/^\(DB_OWNER_PASSWORD\|DB_PASSWORD\|ML_INTERNAL_TOKEN\|PHONE_ENC_KEY\|DATA_ENC_KEYS\|PHONE_HMAC_KEY\|OTP_PEPPER\|AUDIT_HMAC_KEY\|KEYSTORE_PASSWORD\)=.*/\1=placeholder/' .env
+          docker compose config --quiet
+      - name: Scan the images for fixable HIGH/CRITICAL vulnerabilities
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: image
+          image-ref: ks-app:ci
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: "0"        # report-only for now: base-image findings are tracked, not gating (see docs/SECURITY_RUNBOOK.md)
+      - uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: image
+          image-ref: ks-ml:ci
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: "0"
+
+  artifact:
+    name: Release bundle
+    runs-on: ubuntu-latest
+    needs: [java, ml, dependency-scan, sast, e2e, images]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: java-build
+          path: bundle/java
+      - name: Assemble
+        run: |
+          mkdir -p bundle
+          cp -R database docker docker-compose.yml .env.example bundle/
+          cp -R docs bundle/docs
+          tar czf kaarigar-setu-${GITHUB_SHA::8}.tar.gz bundle
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kaarigar-setu-release
+          path: kaarigar-setu-*.tar.gz

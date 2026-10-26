@@ -1,0 +1,506 @@
+{
+  "trade": "Painter",
+  "criteria": [
+    "paint",
+    "brush",
+    "wall",
+    "primer",
+    "colour"
+  ],
+  "testOnly": true,
+  "version": "TEST-ONLY-0.2",
+  "_comment": "TEST ONLY placeholder questions; not an authoritative assessment. Replace with the real rubric (same shape).",
+  "questions": [
+    {
+      "id": 1,
+      "text": {
+        "hi": "आप पेंटर के रूप में रोज़ किन औज़ारों का इस्तेमाल करते हैं? कम से कम तीन के नाम बताइए।",
+        "en": "Which tools do you use every day as a painter? Name at least three."
+      },
+      "ideal_notes": "TEST ONLY. Common hand tools.",
+      "criteria": [
+        {
+          "id": "q1c1",
+          "description": "Names a brush",
+          "marks": 2,
+          "keywords": [
+            "ब्रश",
+            "brush"
+          ]
+        },
+        {
+          "id": "q1c2",
+          "description": "Names a roller",
+          "marks": 2,
+          "keywords": [
+            "रोलर",
+            "roller"
+          ]
+        },
+        {
+          "id": "q1c3",
+          "description": "Names sandpaper or a putty knife",
+          "marks": 2,
+          "keywords": [
+            "सैंडपेपर",
+            "sandpaper",
+            "रेगमाल",
+            "पुट्टी",
+            "putty",
+            "स्क्रेपर",
+            "scraper"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "tools"
+    },
+    {
+      "id": 2,
+      "text": {
+        "hi": "पेंट के काम में इस्तेमाल होने वाली किन्हीं दो चीज़ों के नाम बताइए, जैसे पेंट के प्रकार या तैयारी का सामान।",
+        "en": "Name two things used in painting work, such as kinds of paint or preparation materials."
+      },
+      "ideal_notes": "TEST ONLY. Paint types and prep materials.",
+      "criteria": [
+        {
+          "id": "q2c1",
+          "description": "Names a type of paint",
+          "marks": 2,
+          "keywords": [
+            "इमल्शन",
+            "emulsion",
+            "एनामेल",
+            "enamel",
+            "डिस्टेम्पर",
+            "distemper",
+            "ऑयल",
+            "oil",
+            "वाटर",
+            "water"
+          ]
+        },
+        {
+          "id": "q2c2",
+          "description": "Names a preparation material",
+          "marks": 2,
+          "keywords": [
+            "प्राइमर",
+            "primer",
+            "पुट्टी",
+            "putty",
+            "सैंडपेपर",
+            "sandpaper",
+            "सफेदी",
+            "whitewash"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "materials"
+    },
+    {
+      "id": 3,
+      "text": {
+        "hi": "आपने पेंटिंग का काम कहाँ सीखा: आईटीआई, अप्रेंटिसशिप, या किसी सीनियर के साथ? थोड़ा बताइए।",
+        "en": "Where did you learn painting: ITI, apprenticeship, or with a senior? Briefly explain."
+      },
+      "ideal_notes": "TEST ONLY. Background question.",
+      "criteria": [
+        {
+          "id": "q3c1",
+          "description": "Names a clear way of learning",
+          "marks": 2,
+          "keywords": [
+            "आईटीआई",
+            "iti",
+            "अप्रेंटिस",
+            "apprentice",
+            "सीनियर",
+            "senior",
+            "उस्ताद",
+            "सीखा",
+            "learned"
+          ]
+        },
+        {
+          "id": "q3c2",
+          "description": "Gives time or context",
+          "marks": 2,
+          "keywords": [
+            "साल",
+            "year",
+            "महीने",
+            "month",
+            "years"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "experience"
+    },
+    {
+      "id": 4,
+      "text": {
+        "hi": "पेंट करने से पहले दीवार पर पुट्टी या प्राइमर क्यों लगाया जाता है? अपने शब्दों में बताइए।",
+        "en": "Why is putty or primer applied to a wall before painting? Explain in your own words."
+      },
+      "ideal_notes": "TEST ONLY. Smooth surface, paint sticks and lasts.",
+      "criteria": [
+        {
+          "id": "q4c1",
+          "description": "Says it makes the surface smooth or even",
+          "marks": 2,
+          "keywords": [
+            "समतल",
+            "smooth",
+            "चिकनी",
+            "चिकना",
+            "level",
+            "बराबर",
+            "even"
+          ]
+        },
+        {
+          "id": "q4c2",
+          "description": "Says paint sticks or lasts better",
+          "marks": 2,
+          "keywords": [
+            "चिपक",
+            "stick",
+            "टिकाऊ",
+            "last",
+            "बेस",
+            "base",
+            "फिनिश",
+            "finish",
+            "ज्यादा चलता"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "knowledge"
+    },
+    {
+      "id": 5,
+      "text": {
+        "hi": "अगर कोई ग्राहक कमरा पेंट करवाना चाहता है, तो आप उससे क्या-क्या पूछेंगे?",
+        "en": "If a customer wants a room painted, what would you ask them?"
+      },
+      "ideal_notes": "TEST ONLY. Requirement gathering.",
+      "criteria": [
+        {
+          "id": "q5c1",
+          "description": "Asks about room size or walls",
+          "marks": 2,
+          "keywords": [
+            "कमरे",
+            "कमरा",
+            "room",
+            "साइज़",
+            "साइज",
+            "size",
+            "दीवार",
+            "wall",
+            "माप",
+            "measure"
+          ]
+        },
+        {
+          "id": "q5c2",
+          "description": "Asks about colour, finish or budget",
+          "marks": 2,
+          "keywords": [
+            "रंग",
+            "color",
+            "colour",
+            "बजट",
+            "budget",
+            "फिनिश",
+            "finish",
+            "कीमत",
+            "price"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "customer"
+    },
+    {
+      "id": 6,
+      "level": "intermediate",
+      "text": {
+        "hi": "दीवार को पेंट करने से पहले सूखने क्यों दिया जाता है, और गीली दीवार पर पेंट करने से क्या दिक्कत हो सकती है?",
+        "en": "Why is a wall left to dry before painting, and what can go wrong if it is painted while damp?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Damp causes peeling, blisters, fungus.",
+      "criteria": [
+        {
+          "id": "q6c1",
+          "description": "Mentions dampness or moisture in the wall",
+          "marks": 2,
+          "keywords": [
+            "नमी",
+            "damp",
+            "moisture",
+            "सीलन",
+            "पानी"
+          ]
+        },
+        {
+          "id": "q6c2",
+          "description": "Names peeling, blisters, fungus or stains",
+          "marks": 2,
+          "keywords": [
+            "छिल",
+            "peel",
+            "फूल",
+            "blister",
+            "फफूंद",
+            "fungus",
+            "दाग",
+            "stain",
+            "उखड़"
+          ]
+        },
+        {
+          "id": "q6c3",
+          "description": "Mentions waiting or drying time",
+          "marks": 2,
+          "keywords": [
+            "सूख",
+            "dry",
+            "इंतज़ार",
+            "wait",
+            "दिन",
+            "days"
+          ]
+        }
+      ],
+      "area": "knowledge"
+    },
+    {
+      "id": 7,
+      "level": "intermediate",
+      "text": {
+        "hi": "इमल्शन और एनामेल पेंट में क्या फ़र्क है, और ये कहाँ इस्तेमाल होते हैं?",
+        "en": "What is the difference between emulsion and enamel paint, and where is each used?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Emulsion: water-based for walls; enamel: wood/metal.",
+      "criteria": [
+        {
+          "id": "q7c1",
+          "description": "Says emulsion is for walls or is water-based",
+          "marks": 2,
+          "keywords": [
+            "इमल्शन",
+            "emulsion",
+            "दीवार",
+            "wall",
+            "पानी",
+            "water",
+            "अंदर",
+            "interior"
+          ]
+        },
+        {
+          "id": "q7c2",
+          "description": "Says enamel is for wood or metal",
+          "marks": 2,
+          "keywords": [
+            "एनामेल",
+            "enamel",
+            "लकड़ी",
+            "wood",
+            "लोहा",
+            "metal",
+            "दरवाज़ा",
+            "door",
+            "ग्रिल",
+            "grill"
+          ]
+        },
+        {
+          "id": "q7c3",
+          "description": "Names a difference such as shine or durability",
+          "marks": 2,
+          "keywords": [
+            "चमक",
+            "gloss",
+            "shine",
+            "टिकाऊ",
+            "durable",
+            "धो",
+            "wash"
+          ]
+        }
+      ],
+      "area": "materials"
+    },
+    {
+      "id": 8,
+      "level": "advanced",
+      "text": {
+        "hi": "सूखने के बाद नई पेंट की दीवार पर कहीं-कहीं रंग का शेड अलग दिखता है। इसके क्या कारण हो सकते हैं?",
+        "en": "After drying, a newly painted wall shows patches of a different shade. What could be the reasons?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Uneven coats, poor mixing/thinning, uneven surface, batch or overlap.",
+      "criteria": [
+        {
+          "id": "q8c1",
+          "description": "Mentions uneven coats, poor mixing or too much thinner",
+          "marks": 3,
+          "keywords": [
+            "कोट",
+            "coat",
+            "मिला",
+            "mix",
+            "पतला",
+            "thin",
+            "diluted"
+          ]
+        },
+        {
+          "id": "q8c2",
+          "description": "Mentions the surface, primer or putty not even",
+          "marks": 3,
+          "keywords": [
+            "प्राइमर",
+            "primer",
+            "पुट्टी",
+            "putty",
+            "सतह",
+            "surface",
+            "बराबर"
+          ]
+        },
+        {
+          "id": "q8c3",
+          "description": "Mentions different batches or overlapping",
+          "marks": 3,
+          "keywords": [
+            "बैच",
+            "batch",
+            "ओवरलैप",
+            "overlap",
+            "अलग",
+            "different",
+            "टच-अप",
+            "touch"
+          ]
+        }
+      ],
+      "area": "troubleshooting"
+    },
+    {
+      "id": 9,
+      "level": "advanced",
+      "text": {
+        "hi": "एक कमरे में छत और दीवारें किस क्रम में पेंट करेंगे, और क्यों?",
+        "en": "In what order would you paint the ceiling and walls of a room, and why?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Ceiling first, top to bottom, avoid drips on finished work.",
+      "criteria": [
+        {
+          "id": "q9c1",
+          "description": "Says the ceiling is painted first",
+          "marks": 3,
+          "keywords": [
+            "छत",
+            "ceiling",
+            "ऊपर",
+            "top"
+          ]
+        },
+        {
+          "id": "q9c2",
+          "description": "Says top to bottom so drips do not spoil finished work",
+          "marks": 3,
+          "keywords": [
+            "टपक",
+            "drip",
+            "ऊपर से नीचे",
+            "top to bottom",
+            "गिर"
+          ]
+        },
+        {
+          "id": "q9c3",
+          "description": "Mentions covering the floor or furniture",
+          "marks": 3,
+          "keywords": [
+            "ढक",
+            "cover",
+            "फर्श",
+            "floor",
+            "सामान",
+            "furniture",
+            "पन्नी",
+            "sheet"
+          ]
+        }
+      ],
+      "area": "planning"
+    },
+    {
+      "id": 10,
+      "level": "intermediate",
+      "text": {
+        "hi": "एक कमरे को पेंट करने के लिए कितना पेंट चाहिए, यह आप कैसे निकालते हैं?",
+        "en": "How do you work out how much paint a room needs?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Area, coverage per litre and number of coats, subtract openings, extra.",
+      "criteria": [
+        {
+          "id": "q10c1",
+          "description": "Works out the area from the room measurements",
+          "marks": 2,
+          "keywords": [
+            "क्षेत्रफल",
+            "area",
+            "लंबाई",
+            "length",
+            "ऊंचाई",
+            "height",
+            "नाप",
+            "measure",
+            "वर्ग फुट",
+            "square"
+          ]
+        },
+        {
+          "id": "q10c2",
+          "description": "Uses coverage per litre and the number of coats",
+          "marks": 2,
+          "keywords": [
+            "कवरेज",
+            "coverage",
+            "लीटर",
+            "litre",
+            "liter",
+            "कोट",
+            "coat",
+            "प्रति"
+          ]
+        },
+        {
+          "id": "q10c3",
+          "description": "Subtracts doors and windows or adds extra",
+          "marks": 2,
+          "keywords": [
+            "दरवाज़ा",
+            "door",
+            "खिड़की",
+            "window",
+            "घटा",
+            "subtract",
+            "ज्यादा",
+            "extra"
+          ]
+        }
+      ],
+      "area": "planning"
+    }
+  ],
+  "reviewStatus": "UNVALIDATED DRAFT: questions 6 to 10 were written without a domain expert. Every answer key needs expert review before any real use."
+}

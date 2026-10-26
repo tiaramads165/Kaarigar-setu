@@ -1,0 +1,526 @@
+{
+  "trade": "Welder",
+  "criteria": [
+    "weld",
+    "metal",
+    "electrode",
+    "arc",
+    "joint"
+  ],
+  "testOnly": true,
+  "version": "TEST-ONLY-0.2",
+  "_comment": "TEST ONLY placeholder questions; not an authoritative assessment. Replace with the real rubric (same shape).",
+  "questions": [
+    {
+      "id": 1,
+      "text": {
+        "hi": "आप वेल्डर के रूप में रोज़ किन औज़ारों और सामान का इस्तेमाल करते हैं? कम से कम तीन के नाम बताइए।",
+        "en": "Which tools and supplies do you use every day as a welder? Name at least three."
+      },
+      "ideal_notes": "TEST ONLY. Common tools and supplies.",
+      "criteria": [
+        {
+          "id": "q1c1",
+          "description": "Names a welding machine",
+          "marks": 2,
+          "keywords": [
+            "वेल्डिंग मशीन",
+            "welding machine",
+            "मशीन",
+            "machine",
+            "welder"
+          ]
+        },
+        {
+          "id": "q1c2",
+          "description": "Names an electrode, rod or wire",
+          "marks": 2,
+          "keywords": [
+            "इलेक्ट्रोड",
+            "electrode",
+            "रॉड",
+            "rod",
+            "तार",
+            "wire"
+          ]
+        },
+        {
+          "id": "q1c3",
+          "description": "Names a grinder or hammer",
+          "marks": 2,
+          "keywords": [
+            "ग्राइंडर",
+            "grinder",
+            "घिसाई",
+            "हथौड़ा",
+            "hammer",
+            "चिपिंग",
+            "chipping"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "tools"
+    },
+    {
+      "id": 2,
+      "text": {
+        "hi": "वेल्डिंग में किन धातुओं पर काम होता है और वेल्डिंग के कौन से प्रकार आप जानते हैं? बताइए।",
+        "en": "Which metals do you weld, and which kinds of welding do you know?"
+      },
+      "ideal_notes": "TEST ONLY. Metals and welding types.",
+      "criteria": [
+        {
+          "id": "q2c1",
+          "description": "Names a metal",
+          "marks": 2,
+          "keywords": [
+            "लोहा",
+            "iron",
+            "स्टील",
+            "steel",
+            "स्टेनलेस",
+            "stainless",
+            "एल्यूमिनियम",
+            "aluminium",
+            "aluminum"
+          ]
+        },
+        {
+          "id": "q2c2",
+          "description": "Names a kind of welding or joint",
+          "marks": 2,
+          "keywords": [
+            "आर्क",
+            "arc",
+            "गैस",
+            "gas",
+            "मिग",
+            "mig",
+            "टिग",
+            "tig",
+            "जोड़",
+            "joint",
+            "butt"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "materials"
+    },
+    {
+      "id": 3,
+      "text": {
+        "hi": "आपने वेल्डिंग का काम कहाँ सीखा: आईटीआई, अप्रेंटिसशिप, या किसी सीनियर के साथ? थोड़ा बताइए।",
+        "en": "Where did you learn welding: ITI, apprenticeship, or with a senior? Briefly explain."
+      },
+      "ideal_notes": "TEST ONLY. Background question.",
+      "criteria": [
+        {
+          "id": "q3c1",
+          "description": "Names a clear way of learning",
+          "marks": 2,
+          "keywords": [
+            "आईटीआई",
+            "iti",
+            "अप्रेंटिस",
+            "apprentice",
+            "सीनियर",
+            "senior",
+            "उस्ताद",
+            "सीखा",
+            "learned"
+          ]
+        },
+        {
+          "id": "q3c2",
+          "description": "Gives time or context",
+          "marks": 2,
+          "keywords": [
+            "साल",
+            "year",
+            "महीने",
+            "month",
+            "years"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "experience"
+    },
+    {
+      "id": 4,
+      "text": {
+        "hi": "वेल्डिंग से दो धातु के टुकड़ों के साथ क्या होता है? अपने शब्दों में बताइए।",
+        "en": "What does welding do to two pieces of metal? Explain in your own words."
+      },
+      "ideal_notes": "TEST ONLY. Joins by heating and melting.",
+      "criteria": [
+        {
+          "id": "q4c1",
+          "description": "Says it joins the pieces",
+          "marks": 2,
+          "keywords": [
+            "जोड़",
+            "जुड़",
+            "join",
+            "connect",
+            "मिला"
+          ]
+        },
+        {
+          "id": "q4c2",
+          "description": "Mentions heat or melting",
+          "marks": 2,
+          "keywords": [
+            "पिघल",
+            "melt",
+            "गर्मी",
+            "heat",
+            "गरम",
+            "हीट",
+            "आग",
+            "spark",
+            "चिंगारी"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "knowledge"
+    },
+    {
+      "id": 5,
+      "text": {
+        "hi": "अगर कोई ग्राहक नया गेट बनवाना चाहता है, तो आप उससे क्या-क्या पूछेंगे?",
+        "en": "If a customer wants a new gate made, what would you ask them?"
+      },
+      "ideal_notes": "TEST ONLY. Requirement gathering.",
+      "criteria": [
+        {
+          "id": "q5c1",
+          "description": "Asks about size or design",
+          "marks": 2,
+          "keywords": [
+            "साइज़",
+            "साइज",
+            "size",
+            "माप",
+            "measure",
+            "डिज़ाइन",
+            "डिजाइन",
+            "design",
+            "ऊंचाई",
+            "height",
+            "चौड़ाई",
+            "width"
+          ]
+        },
+        {
+          "id": "q5c2",
+          "description": "Asks about material or budget",
+          "marks": 2,
+          "keywords": [
+            "बजट",
+            "budget",
+            "लोहा",
+            "iron",
+            "स्टील",
+            "steel",
+            "पेंट",
+            "paint",
+            "कीमत",
+            "price"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "customer"
+    },
+    {
+      "id": 6,
+      "level": "intermediate",
+      "text": {
+        "hi": "वेल्डिंग से पहले धातु की सतह को साफ़ क्यों करना ज़रूरी है?",
+        "en": "Why must the metal surface be cleaned before welding?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Rust/paint/oil cause weak welds and defects.",
+      "criteria": [
+        {
+          "id": "q6c1",
+          "description": "Names rust, paint, oil or dirt on the surface",
+          "marks": 2,
+          "keywords": [
+            "जंग",
+            "rust",
+            "पेंट",
+            "paint",
+            "तेल",
+            "oil",
+            "गंदगी",
+            "dirt"
+          ]
+        },
+        {
+          "id": "q6c2",
+          "description": "Says it causes a weak weld or defects",
+          "marks": 2,
+          "keywords": [
+            "कमजोर",
+            "weak",
+            "छेद",
+            "hole",
+            "porosity",
+            "बुलबुले",
+            "bubbles",
+            "दोष",
+            "defect"
+          ]
+        },
+        {
+          "id": "q6c3",
+          "description": "Names how to clean",
+          "marks": 2,
+          "keywords": [
+            "ग्राइंडर",
+            "grinder",
+            "ब्रश",
+            "brush",
+            "साफ",
+            "clean"
+          ]
+        }
+      ],
+      "area": "knowledge"
+    },
+    {
+      "id": 7,
+      "level": "intermediate",
+      "text": {
+        "hi": "वेल्डिंग में करंट बहुत कम या बहुत ज़्यादा रखने से क्या होता है?",
+        "en": "What happens if the welding current is set too low or too high?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Low: poor fusion/sticking; high: burn-through, spatter.",
+      "criteria": [
+        {
+          "id": "q7c1",
+          "description": "Says too low gives poor joining or sticking",
+          "marks": 2,
+          "keywords": [
+            "चिपक",
+            "stick",
+            "गहराई",
+            "penetration",
+            "जुड़ता नहीं",
+            "not join",
+            "कमज़ोर जोड़"
+          ]
+        },
+        {
+          "id": "q7c2",
+          "description": "Says too high burns through or spatters",
+          "marks": 2,
+          "keywords": [
+            "छेद",
+            "burn",
+            "जल",
+            "स्पैटर",
+            "spatter",
+            "पिघल",
+            "melt"
+          ]
+        },
+        {
+          "id": "q7c3",
+          "description": "Says the setting depends on thickness or electrode",
+          "marks": 2,
+          "keywords": [
+            "मोटाई",
+            "thickness",
+            "रॉड",
+            "electrode",
+            "सेट",
+            "adjust",
+            "एम्पीयर",
+            "amp"
+          ]
+        }
+      ],
+      "area": "knowledge"
+    },
+    {
+      "id": 8,
+      "level": "advanced",
+      "text": {
+        "hi": "वेल्डिंग के दो दोषों (डिफ़ेक्ट) के नाम बताइए और यह कि वे किन कारणों से होते हैं।",
+        "en": "Name two weld defects and what causes each."
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Cracks, porosity, undercut, spatter, slag inclusion; dirt, moisture, wrong current/speed.",
+      "criteria": [
+        {
+          "id": "q8c1",
+          "description": "Names a weld defect",
+          "marks": 3,
+          "keywords": [
+            "दरार",
+            "crack",
+            "porosity",
+            "पोरोसिटी",
+            "छेद",
+            "undercut",
+            "स्पैटर",
+            "spatter",
+            "slag",
+            "स्लैग"
+          ]
+        },
+        {
+          "id": "q8c2",
+          "description": "Gives a cause of a defect",
+          "marks": 3,
+          "keywords": [
+            "गंदगी",
+            "dirt",
+            "नमी",
+            "moisture",
+            "स्पीड",
+            "speed",
+            "करंट",
+            "current",
+            "गलत",
+            "wrong"
+          ]
+        },
+        {
+          "id": "q8c3",
+          "description": "Says how a defect is repaired",
+          "marks": 3,
+          "keywords": [
+            "दोबारा",
+            "redo",
+            "ग्राइंड",
+            "grind",
+            "साफ",
+            "clean",
+            "ठीक",
+            "fix",
+            "repair"
+          ]
+        }
+      ],
+      "area": "troubleshooting"
+    },
+    {
+      "id": 9,
+      "level": "advanced",
+      "text": {
+        "hi": "अलग-अलग मोटाई की दो धातु की प्लेटों को जोड़ना है। आप इस काम की योजना कैसे बनाएंगे?",
+        "en": "Two metal plates of different thickness have to be welded. How would you plan the job?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Fit-up and tacking, settings for the thicker plate, distortion.",
+      "criteria": [
+        {
+          "id": "q9c1",
+          "description": "Mentions fitting, aligning, clamping or tack welds",
+          "marks": 3,
+          "keywords": [
+            "टैक",
+            "tack",
+            "अलाइन",
+            "align",
+            "बेवल",
+            "bevel",
+            "clamp",
+            "क्लैंप",
+            "फिट"
+          ]
+        },
+        {
+          "id": "q9c2",
+          "description": "Chooses settings by thickness",
+          "marks": 3,
+          "keywords": [
+            "मोटाई",
+            "thickness",
+            "करंट",
+            "current",
+            "रॉड",
+            "electrode",
+            "सेट"
+          ]
+        },
+        {
+          "id": "q9c3",
+          "description": "Mentions warping or distortion",
+          "marks": 3,
+          "keywords": [
+            "मुड़",
+            "warp",
+            "distortion",
+            "टेढ़ा",
+            "गर्म",
+            "heat"
+          ]
+        }
+      ],
+      "area": "planning"
+    },
+    {
+      "id": 10,
+      "level": "intermediate",
+      "text": {
+        "hi": "ग्राहक 3 मीटर का लोहे का गेट बनवाना चाहता है। आप सामान और कीमत का अंदाज़ा कैसे लगाएंगे?",
+        "en": "A customer wants a 3-metre iron gate made. How do you estimate the material and the price?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Material length/weight, consumables and wastage, labour and cost.",
+      "criteria": [
+        {
+          "id": "q10c1",
+          "description": "Lists the pipe, angle or iron needed and its length",
+          "marks": 2,
+          "keywords": [
+            "पाइप",
+            "pipe",
+            "एंगल",
+            "angle",
+            "लंबाई",
+            "length",
+            "माप",
+            "measure",
+            "किलो"
+          ]
+        },
+        {
+          "id": "q10c2",
+          "description": "Includes electrodes and allows for waste",
+          "marks": 2,
+          "keywords": [
+            "रॉड",
+            "electrode",
+            "बर्बादी",
+            "waste",
+            "ज्यादा",
+            "extra"
+          ]
+        },
+        {
+          "id": "q10c3",
+          "description": "Adds labour and works out the price",
+          "marks": 2,
+          "keywords": [
+            "मज़दूरी",
+            "labour",
+            "labor",
+            "कीमत",
+            "price",
+            "रेट",
+            "rate",
+            "लागत",
+            "cost"
+          ]
+        }
+      ],
+      "area": "planning"
+    }
+  ],
+  "reviewStatus": "UNVALIDATED DRAFT: questions 6 to 10 were written without a domain expert. Every answer key needs expert review before any real use."
+}

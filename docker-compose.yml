@@ -1,0 +1,142 @@
+# Kaarigar Setu demo / pilot stack:  Tomcat (Java app) + Python ML service + PostgreSQL behind a TLS proxy.
+#   ./scripts/compose-setup.sh      once: generates every secret into .env (git-ignored) and builds the images
+#   docker compose up -d            then browse https://localhost:8443  (local CA certificate: accept the browser warning)
+# Only the proxy publishes ports. The database and the ML service are on networks the outside cannot reach.
+name: kaarigar-setu
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-kaarigar_setu}
+      POSTGRES_USER: ks_owner
+      POSTGRES_PASSWORD: ${DB_OWNER_PASSWORD:?run ./scripts/compose-setup.sh first}
+      APP_DB_PASSWORD: ${DB_PASSWORD:?run ./scripts/compose-setup.sh first}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database:/database:ro
+      - ./docker/postgres/init.sh:/docker-entrypoint-initdb.d/10-init.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ks_owner -d ${DB_NAME:-kaarigar_setu}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [backend]
+    security_opt: ["no-new-privileges:true"]
+
+  ml:
+    build:
+      context: ./kaarigarsetu-ml-service
+      args:
+        WITH_WHISPER: ${WITH_WHISPER:-0}
+    restart: unless-stopped
+    environment:
+      APP_ENV: ${APP_ENV:-staging}
+      INTERNAL_API_TOKEN: ${ML_INTERNAL_TOKEN:?run ./scripts/compose-setup.sh first}
+      STT_PROVIDER: ${STT_PROVIDER:-stub}          # "whisper" needs the image built with WITH_WHISPER=1
+      EVALUATOR: ${EVALUATOR:-}                    # empty = LLM when LLM_API_KEY is set, else the keyword scorer
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      WHISPER_MODEL: ${WHISPER_MODEL:-large-v3-turbo}
+      XDG_CACHE_HOME: /models                      # Whisper downloads its model here on first start (about 1.6 GB)
+    volumes:
+      - whispermodels:/models
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8001/health', timeout=2).status == 200 else 1)"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 20s
+    networks: [backend, egress]                    # egress only so an LLM provider can be reached; nothing publishes a port
+
+  app:
+    build:
+      context: .
+      dockerfile: kaarigarsetu-java/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres: {condition: service_healthy}
+      ml: {condition: service_healthy}
+    environment:
+      APP_ENV: ${APP_ENV:-staging}
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: ${DB_NAME:-kaarigar_setu}
+      DB_USER: kaarigar_app
+      DB_PASSWORD: ${DB_PASSWORD:?run ./scripts/compose-setup.sh first}
+      ML_SERVICE_URL: http://ml:8001
+      ML_INTERNAL_TOKEN: ${ML_INTERNAL_TOKEN:?run ./scripts/compose-setup.sh first}
+      PHONE_ENC_KEY: ${PHONE_ENC_KEY:?run ./scripts/compose-setup.sh first}
+      DATA_ENC_KEYS: ${DATA_ENC_KEYS:?run ./scripts/compose-setup.sh first}     # encrypts transcripts, scores, the audit file and credential exports; back it up apart from the data
+      PHONE_HMAC_KEY: ${PHONE_HMAC_KEY:?run ./scripts/compose-setup.sh first}
+      OTP_PEPPER: ${OTP_PEPPER:?run ./scripts/compose-setup.sh first}
+      KEYSTORE_PATH: /usr/local/tomcat/data/credential-keystore.p12
+      KEYSTORE_PASSWORD: ${KEYSTORE_PASSWORD:?run ./scripts/compose-setup.sh first}
+      KEY_ALIAS: credential-signing
+      RSA_KEY_BITS: ${RSA_KEY_BITS:-3072}
+      AUDIT_LOG_PATH: /usr/local/tomcat/data/audit.log
+      RETIRED_KEYS_DIR: /usr/local/tomcat/data/keys/retired   # public keys of rotated-out signing keys: old credentials keep verifying (scripts/rotate-signing-key.sh)
+      AUDIT_HMAC_KEY: ${AUDIT_HMAC_KEY:?run ./scripts/compose-setup.sh first}
+      COOKIE_SECURE: "true"
+      TRUST_FORWARDED_FOR: "true"                  # safe here only because the proxy overwrites X-Forwarded-For
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-https://localhost:8443}
+      TWO_PERSON_ACTIONS: ${TWO_PERSON_ACTIONS:-VET_EMPLOYER,DISPUTE_DECISION}   # vetting and dispute rulings need a second moderator (refused to be switched off when APP_ENV=prod)
+      REPLAY_CHALLENGE: ${REPLAY_CHALLENGE:-true}                  # each answer must include a spoken code made at that moment (docs/REPLAY_DETECTION.md)
+      REPLAY_CHALLENGE_TRIES: ${REPLAY_CHALLENGE_TRIES:-3}
+      REPLAY_CHALLENGE_MINUTES: ${REPLAY_CHALLENGE_MINUTES:-15}
+      REPLAY_DETECTION: ${REPLAY_DETECTION:-true}                  # a recording or a set of words used before is held for review (refused to be switched off when APP_ENV=prod)
+      REPLAY_MIN_MATCHES: ${REPLAY_MIN_MATCHES:-25}
+      REPLAY_MIN_LANDMARKS: ${REPLAY_MIN_LANDMARKS:-100}
+      REPLAY_TEXT_MIN_SHINGLES: ${REPLAY_TEXT_MIN_SHINGLES:-14}
+      REPLAY_TEXT_MIN_COMMON: ${REPLAY_TEXT_MIN_COMMON:-8}
+      REPLAY_TEXT_MIN_SHARE: ${REPLAY_TEXT_MIN_SHARE:-0.5}
+      ALLOW_CONSOLE_OTP: "true"                    # codes are printed to the log (docker compose logs app); replace with an SMS sender before real use
+    volumes:
+      - appdata:/usr/local/tomcat/data             # keystore, audit log and exported credentials survive container re-creation
+    read_only: true
+    tmpfs: [/tmp, /usr/local/tomcat/temp, /usr/local/tomcat/work, /usr/local/tomcat/logs]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8080 && printf \"GET /health HTTP/1.0\\r\\n\\r\\n\" >&3 && grep -q running <&3'"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 40s
+    networks: [frontend, backend]
+
+  proxy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      app: {condition: service_healthy}
+    environment:
+      PUBLIC_HOST: ${PUBLIC_HOST:-localhost}
+    ports:
+      - "8443:443"
+      - "8080:80"                                  # plain http only redirects to https
+    volumes:
+      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt: ["no-new-privileges:true"]
+    networks: [frontend]
+
+networks:
+  frontend: {}
+  backend:
+    internal: true                                  # no route to the internet or to the host
+  egress: {}
+
+volumes:
+  whispermodels:
+  pgdata:
+  appdata:
+  caddy-data:
+  caddy-config:

@@ -1,0 +1,517 @@
+{
+  "trade": "Carpenter",
+  "criteria": [
+    "wood",
+    "saw",
+    "joint",
+    "chisel",
+    "hammer"
+  ],
+  "testOnly": true,
+  "version": "TEST-ONLY-0.2",
+  "_comment": "TEST ONLY placeholder questions; not an authoritative assessment. Replace with the real rubric (same shape).",
+  "questions": [
+    {
+      "id": 1,
+      "text": {
+        "hi": "आप बढ़ई के रूप में रोज़ किन औज़ारों का इस्तेमाल करते हैं? कम से कम तीन औज़ारों के नाम बताइए।",
+        "en": "Which tools do you use every day as a carpenter? Name at least three."
+      },
+      "ideal_notes": "TEST ONLY. Common hand tools.",
+      "criteria": [
+        {
+          "id": "q1c1",
+          "description": "Names a saw",
+          "marks": 2,
+          "keywords": [
+            "आरी",
+            "saw"
+          ]
+        },
+        {
+          "id": "q1c2",
+          "description": "Names a hammer",
+          "marks": 2,
+          "keywords": [
+            "हथौड़ा",
+            "हथौड़ी",
+            "hammer"
+          ]
+        },
+        {
+          "id": "q1c3",
+          "description": "Names a chisel, plane or measuring tape",
+          "marks": 2,
+          "keywords": [
+            "छेनी",
+            "रंदा",
+            "chisel",
+            "plane",
+            "फीता",
+            "tape",
+            "measuring"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "tools"
+    },
+    {
+      "id": 2,
+      "text": {
+        "hi": "लकड़ी के काम में इस्तेमाल होने वाली किन्हीं दो चीज़ों के नाम बताइए, जैसे अलग-अलग तरह की लकड़ी या बोर्ड।",
+        "en": "Name two materials used in woodwork, such as kinds of wood or boards."
+      },
+      "ideal_notes": "TEST ONLY. Wood and board types.",
+      "criteria": [
+        {
+          "id": "q2c1",
+          "description": "Names a kind of wood",
+          "marks": 2,
+          "keywords": [
+            "सागौन",
+            "teak",
+            "शीशम",
+            "sheesham",
+            "आम",
+            "mango",
+            "देवदार",
+            "cedar",
+            "साल",
+            "बबूल",
+            "babool"
+          ]
+        },
+        {
+          "id": "q2c2",
+          "description": "Names a board material",
+          "marks": 2,
+          "keywords": [
+            "प्लाईवुड",
+            "plywood",
+            "एमडीएफ",
+            "mdf",
+            "बोर्ड",
+            "board",
+            "लैमिनेट",
+            "laminate"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "materials"
+    },
+    {
+      "id": 3,
+      "text": {
+        "hi": "आपने बढ़ई का काम कहाँ सीखा: आईटीआई, अप्रेंटिसशिप, या किसी सीनियर के साथ? थोड़ा बताइए।",
+        "en": "Where did you learn carpentry: ITI, apprenticeship, or with a senior? Briefly explain."
+      },
+      "ideal_notes": "TEST ONLY. Background question.",
+      "criteria": [
+        {
+          "id": "q3c1",
+          "description": "Names a clear way of learning",
+          "marks": 2,
+          "keywords": [
+            "आईटीआई",
+            "iti",
+            "अप्रेंटिस",
+            "apprentice",
+            "सीनियर",
+            "senior",
+            "उस्ताद",
+            "सीखा",
+            "learned"
+          ]
+        },
+        {
+          "id": "q3c2",
+          "description": "Gives time or context",
+          "marks": 2,
+          "keywords": [
+            "साल",
+            "year",
+            "महीने",
+            "month",
+            "years"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "experience"
+    },
+    {
+      "id": 4,
+      "text": {
+        "hi": "लकड़ी के काम में 'जोड़' क्या होता है और उसकी ज़रूरत क्यों पड़ती है? अपने शब्दों में बताइए।",
+        "en": "In woodwork, what is a joint and why is it needed? Explain in your own words."
+      },
+      "ideal_notes": "TEST ONLY. Joins two pieces, gives strength.",
+      "criteria": [
+        {
+          "id": "q4c1",
+          "description": "Says a joint connects pieces of wood",
+          "marks": 2,
+          "keywords": [
+            "जोड़",
+            "जुड़",
+            "join",
+            "connect",
+            "मिला"
+          ]
+        },
+        {
+          "id": "q4c2",
+          "description": "Says it makes the piece strong or hold together",
+          "marks": 2,
+          "keywords": [
+            "मजबूत",
+            "मज़बूत",
+            "strong",
+            "strength",
+            "पकड़",
+            "hold"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "knowledge"
+    },
+    {
+      "id": 5,
+      "text": {
+        "hi": "अगर कोई ग्राहक नई अलमारी बनवाना चाहता है, तो आप उससे क्या-क्या पूछेंगे?",
+        "en": "If a customer wants a new wardrobe made, what would you ask them?"
+      },
+      "ideal_notes": "TEST ONLY. Requirement gathering.",
+      "criteria": [
+        {
+          "id": "q5c1",
+          "description": "Asks about size or measurements",
+          "marks": 2,
+          "keywords": [
+            "साइज़",
+            "साइज",
+            "size",
+            "माप",
+            "measure",
+            "लंबाई",
+            "length",
+            "ऊंचाई",
+            "height",
+            "चौड़ाई",
+            "width"
+          ]
+        },
+        {
+          "id": "q5c2",
+          "description": "Asks about material, design or budget",
+          "marks": 2,
+          "keywords": [
+            "बजट",
+            "budget",
+            "डिज़ाइन",
+            "डिजाइन",
+            "design",
+            "लकड़ी",
+            "wood",
+            "रंग",
+            "color",
+            "colour",
+            "कीमत",
+            "price"
+          ]
+        }
+      ],
+      "level": "basic",
+      "area": "customer"
+    },
+    {
+      "id": 6,
+      "level": "intermediate",
+      "text": {
+        "hi": "लकड़ी को इस्तेमाल करने से पहले क्यों सुखाया जाता है (सीज़न किया जाता है)?",
+        "en": "Why is wood dried (seasoned) before it is used?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Moisture causes shrinking/warping/cracking.",
+      "criteria": [
+        {
+          "id": "q6c1",
+          "description": "Mentions moisture or water in the wood",
+          "marks": 2,
+          "keywords": [
+            "नमी",
+            "moisture",
+            "पानी",
+            "water",
+            "गीली"
+          ]
+        },
+        {
+          "id": "q6c2",
+          "description": "Mentions shrinking, warping or cracking",
+          "marks": 2,
+          "keywords": [
+            "सिकुड़",
+            "shrink",
+            "मुड़",
+            "warp",
+            "फट",
+            "crack",
+            "टेढ़ा"
+          ]
+        },
+        {
+          "id": "q6c3",
+          "description": "Mentions drying or seasoning time",
+          "marks": 2,
+          "keywords": [
+            "सूख",
+            "dry",
+            "सीजन",
+            "season",
+            "समय",
+            "महीने"
+          ]
+        }
+      ],
+      "area": "knowledge"
+    },
+    {
+      "id": 7,
+      "level": "intermediate",
+      "text": {
+        "hi": "लकड़ी के काम में दो तरह के जोड़ों के नाम बताइए और यह कि वे कहाँ इस्तेमाल होते हैं।",
+        "en": "Name two kinds of joints used in woodwork and say where each is used."
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Mortise and tenon, dovetail, lap, butt, dowel etc.",
+      "criteria": [
+        {
+          "id": "q7c1",
+          "description": "Names a woodwork joint",
+          "marks": 2,
+          "keywords": [
+            "मोर्टिज़",
+            "मोर्टिस",
+            "mortise",
+            "टेनन",
+            "tenon",
+            "डोवटेल",
+            "dovetail",
+            "लैप",
+            "lap",
+            "बट",
+            "butt",
+            "मिटर",
+            "miter",
+            "डॉवेल",
+            "dowel"
+          ]
+        },
+        {
+          "id": "q7c2",
+          "description": "Says what it is used for",
+          "marks": 2,
+          "keywords": [
+            "दरवाज़ा",
+            "door",
+            "खिड़की",
+            "window",
+            "फर्नीचर",
+            "furniture",
+            "कुर्सी",
+            "chair",
+            "दराज",
+            "drawer",
+            "फ्रेम",
+            "frame"
+          ]
+        },
+        {
+          "id": "q7c3",
+          "description": "Says why that joint suits the use",
+          "marks": 2,
+          "keywords": [
+            "मजबूत",
+            "strong",
+            "भार",
+            "load",
+            "टिकाऊ",
+            "hold",
+            "पकड़"
+          ]
+        }
+      ],
+      "area": "materials"
+    },
+    {
+      "id": 8,
+      "level": "advanced",
+      "text": {
+        "hi": "आपका लगाया हुआ दरवाज़ा बरसात में अटकने लगता है। इसका क्या कारण हो सकता है और आप क्या करेंगे?",
+        "en": "A door you fitted starts to stick in the rainy season. What could be the reason and what would you do?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Wood swells with humidity; plane/sand the edge; seal/paint to prevent.",
+      "criteria": [
+        {
+          "id": "q8c1",
+          "description": "Says the wood swells with moisture or humidity",
+          "marks": 3,
+          "keywords": [
+            "नमी",
+            "moisture",
+            "फूल",
+            "swell",
+            "बरसात",
+            "humid",
+            "पानी"
+          ]
+        },
+        {
+          "id": "q8c2",
+          "description": "Says how to fix it (plane, sand, trim)",
+          "marks": 3,
+          "keywords": [
+            "रंदा",
+            "plane",
+            "घिस",
+            "sand",
+            "काट",
+            "trim",
+            "छील",
+            "adjust"
+          ]
+        },
+        {
+          "id": "q8c3",
+          "description": "Says how to prevent it (seal, paint, varnish, gap)",
+          "marks": 3,
+          "keywords": [
+            "पॉलिश",
+            "polish",
+            "वार्निश",
+            "varnish",
+            "पेंट",
+            "paint",
+            "गैप",
+            "gap",
+            "सील",
+            "seal"
+          ]
+        }
+      ],
+      "area": "troubleshooting"
+    },
+    {
+      "id": 9,
+      "level": "advanced",
+      "text": {
+        "hi": "आप कैसे पक्का करते हैं कि आपकी बनाई मेज़ सीधी (समकोण) है और हिलती नहीं?",
+        "en": "How do you make sure a table you built is square and does not wobble?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. Check diagonals/corners, level surface, trim legs.",
+      "criteria": [
+        {
+          "id": "q9c1",
+          "description": "Checks diagonals or corners for square",
+          "marks": 3,
+          "keywords": [
+            "डायगोनल",
+            "diagonal",
+            "स्क्वायर",
+            "square",
+            "कोना",
+            "corner",
+            "समकोण",
+            "तिरछा"
+          ]
+        },
+        {
+          "id": "q9c2",
+          "description": "Checks the surface is level or flat",
+          "marks": 3,
+          "keywords": [
+            "लेवल",
+            "level",
+            "समतल",
+            "flat",
+            "सतह",
+            "surface"
+          ]
+        },
+        {
+          "id": "q9c3",
+          "description": "Adjusts or trims the legs",
+          "marks": 3,
+          "keywords": [
+            "पाया",
+            "leg",
+            "बराबर",
+            "even",
+            "काट",
+            "trim",
+            "पैर"
+          ]
+        }
+      ],
+      "area": "knowledge"
+    },
+    {
+      "id": 10,
+      "level": "intermediate",
+      "text": {
+        "hi": "ग्राहक की अलमारी के लिए कितनी लकड़ी लगेगी और कितना खर्च आएगा, यह आप कैसे अंदाज़ा लगाएंगे?",
+        "en": "How would you estimate the wood needed and the cost for a customer's cupboard?"
+      },
+      "ideal_notes": "TEST ONLY. UNVALIDATED DRAFT, needs expert review. List pieces, add wastage, material plus labour.",
+      "criteria": [
+        {
+          "id": "q10c1",
+          "description": "Measures and lists the pieces",
+          "marks": 2,
+          "keywords": [
+            "माप",
+            "measure",
+            "पीस",
+            "piece",
+            "लिस्ट",
+            "list",
+            "नाप"
+          ]
+        },
+        {
+          "id": "q10c2",
+          "description": "Allows for wastage or extra",
+          "marks": 2,
+          "keywords": [
+            "बर्बादी",
+            "waste",
+            "ज्यादा",
+            "extra",
+            "कटिंग",
+            "cutting"
+          ]
+        },
+        {
+          "id": "q10c3",
+          "description": "Includes material and labour in the price",
+          "marks": 2,
+          "keywords": [
+            "मज़दूरी",
+            "labour",
+            "labor",
+            "कीमत",
+            "cost",
+            "price",
+            "रेट",
+            "rate",
+            "लागत"
+          ]
+        }
+      ],
+      "area": "planning"
+    }
+  ],
+  "reviewStatus": "UNVALIDATED DRAFT: questions 6 to 10 were written without a domain expert. Every answer key needs expert review before any real use."
+}

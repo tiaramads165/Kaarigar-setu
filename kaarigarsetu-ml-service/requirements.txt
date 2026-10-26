@@ -1,0 +1,12 @@
+# Runtime dependencies, pinned (blueprint section 7: "Vulnerable Components"). Checked with `pip-audit -r requirements.txt` (see CI).
+fastapi==0.142.2
+starlette==1.7.0
+pydantic==2.13.5
+uvicorn==0.30.1
+python-multipart==0.0.32
+scikit-learn==1.5.0
+numpy==2.4.6
+scipy==1.17.1
+networkx==3.3
+joblib==1.4.2
+httpx==0.27.0            # LLM provider client (app/services/llm_client.py)

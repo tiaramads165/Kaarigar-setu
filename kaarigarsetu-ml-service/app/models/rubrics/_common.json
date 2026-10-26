@@ -1,0 +1,71 @@
+{
+  "testOnly": true,
+  "version": "TEST-ONLY-0.1",
+  "_comment": "TEST ONLY. Cross-cutting measures added to EVERY question. They check WHETHER the worker mentions something (an example from their own work, care or a precaution, checking the result), never WHAT is correct: they contain no trade-specific or safety facts. They only count when the answer also earns marks on the question's own topic criteria (requiresTopic), so an off-topic answer cannot collect them. A real rubric may drop them with \"commonMeasures\": false.",
+  "measures": [
+    {
+      "id": "cm1",
+      "description": "Gives an example or describes steps from own work",
+      "marks": 1,
+      "requiresTopic": true,
+      "keywords": [
+        "जैसे",
+        "उदाहरण",
+        "पहले",
+        "फिर",
+        "उसके बाद",
+        "मैंने",
+        "example",
+        "for example",
+        "first",
+        "then",
+        "after that",
+        "i did"
+      ]
+    },
+    {
+      "id": "cm2",
+      "description": "Mentions care, safety or a precaution",
+      "marks": 1,
+      "requiresTopic": true,
+      "keywords": [
+        "सुरक्षा",
+        "सावधानी",
+        "सावधान",
+        "सेफ्टी",
+        "ध्यान",
+        "दस्ताने",
+        "चश्मा",
+        "हेलमेट",
+        "safety",
+        "safe",
+        "careful",
+        "precaution",
+        "protect",
+        "gloves",
+        "goggles",
+        "helmet"
+      ]
+    },
+    {
+      "id": "cm3",
+      "description": "Mentions checking or testing the finished work",
+      "marks": 1,
+      "requiresTopic": true,
+      "keywords": [
+        "जांच",
+        "जाँच",
+        "चेक",
+        "परीक्षण",
+        "देखता",
+        "देखते",
+        "मापता",
+        "check",
+        "inspect",
+        "verify",
+        "testing",
+        "test it"
+      ]
+    }
+  ]
+}

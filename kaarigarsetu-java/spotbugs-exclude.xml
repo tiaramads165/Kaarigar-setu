@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SpotBugs exclusions. Every entry says why; anything not listed here is a finding that must be fixed or consciously accepted in docs/SECURITY_SCAN_REPORT.md. -->
+<FindBugsFilter>
+    <!-- "May expose internal representation by storing/returning a mutable object". This code base passes services and DAOs to each other by constructor
+         (dependency injection) and hands out immutable records; the warning is about defensive copies of arrays and collections and says nothing about
+         injection, cryptography, access control or data exposure. -->
+    <Match><Bug pattern="EI_EXPOSE_REP"/></Match>
+    <Match><Bug pattern="EI_EXPOSE_REP2"/></Match>
+    <!-- Optional request fields are deliberately three-valued (absent / true / false); the caller checks for null. -->
+    <Match><Class name="com.kaarigarsetu.attestation.AttestationServlet"/><Bug pattern="NP_BOOLEAN_RETURN_NULL"/></Match>
+    <!-- Sealed booleans (an optional rating or flag) are three-valued as well: absent / true / false. Every caller passes the value on or checks for null. -->
+    <Match><Class name="com.kaarigarsetu.security.DataCipher"/><Method name="openBool"/><Bug pattern="NP_BOOLEAN_RETURN_NULL"/></Match>
+    <!-- The operator tool (scripts/seal-at-rest.sh) passes SQL text to a helper. Every text comes from the fixed literals in SealedColumns (the repository's own
+         NoStringBuiltSqlTest guards that they are literals); nothing from input, the environment or the data is ever put into a statement. -->
+    <Match><Class name="com.kaarigarsetu.admin.SealAtRestCli"/><Bug pattern="SQL_INJECTION_JDBC"/></Match>
+    <!-- Flagged heuristically (an optional group in the phone-number mask). Every quantifier is bounded ({9}, ?) with no nesting, so matching is linear, and
+         AuditLogger.clean() truncates its input to 2000 characters before any regex runs. -->
+    <Match><Class name="com.kaarigarsetu.security.AuditLogger"/><Bug pattern="REDOS"/></Match>
+</FindBugsFilter>
