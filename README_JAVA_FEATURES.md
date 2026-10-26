@@ -1,14 +1,12 @@
 # Kaarigar Setu: the Java features
 
-This is the companion to the **CBS 3002 Review 1** deck (*"A Java-Engineered Skill & Trust Passport"*). The deck lists the core Java topics the
-project is built on. This page shows, for each one, **where it lives in the real code** (click a reference to open the file at that line), with
-a short excerpt. Everything below was read from the current source; where the implementation differs from a Review 1 slide, that is said in
-[section 12](#12-where-the-code-differs-from-the-review-1-slides).
+This guide lists the core Java topics the project is built on. For each one it shows **where it lives in the real code** (click a reference to open the file at that line), with
+a short excerpt. Everything below was read from the current source.
 
 **At a glance:** 150 Java source files · 64 Java test files · 498 Java tests + 18 console tests passing · Java 17 language level
 (built with JDK 21) · Jakarta Servlet 6 / JSP / JSTL on Tomcat 10.1 · JDBC on PostgreSQL · JavaFX 21 desktop console.
 
-| # | Review 1 topic | Where it is in the code |
+| # | Topic | Where it is in the code |
 |---|---|---|
 | 1 | Clean package structure | `com.kaarigarsetu.*`, 17 packages ([§1](#1-package-structure)) |
 | 2 | Abstract class, inheritance, polymorphism | [`AssessmentService.java:12`](kaarigarsetu-java/src/main/java/com/kaarigarsetu/assessment/AssessmentService.java#L12) and six trade subclasses ([§2](#2-oop-core-abstract-class-inheritance-polymorphism)) |
@@ -198,7 +196,7 @@ AuditLogRepository`) and lambdas · **streams and `Optional`** · **`java.time`*
 **`java.net.http.HttpClient`** for the ML service and the SMS gateway · **`System.Logger`** · **try-with-resources** everywhere resources open ·
 **`synchronized`** methods and file locks where state is shared (`AttestationStore`, `InMemoryOtpChallengeStore`, the audit file).
 
-## 11. Security features written in Java (the course is Information Security)
+## 11. Security features written in Java
 
 Password hashing with **PBKDF2** ([`PasswordHasher.java:13`](kaarigarsetu-java/src/main/java/com/kaarigarsetu/security/PasswordHasher.java#L13)) · one-time codes hashed with a salt and a server-side pepper
 with attempt limits and expiry ([`OtpService.java:22`](kaarigarsetu-java/src/main/java/com/kaarigarsetu/security/OtpService.java#L22)) · phone numbers **AES-GCM encrypted** with an **HMAC** lookup key
@@ -206,22 +204,6 @@ with attempt limits and expiry ([`OtpService.java:22`](kaarigarsetu-java/src/mai
 sliding-window **rate limiting** ([`RateLimiter.java:13`](kaarigarsetu-java/src/main/java/com/kaarigarsetu/security/RateLimiter.java#L13)) · **CSRF** and security-header filters · hash-chained audit log ·
 constant-time comparisons · **named moderators and two-person approval** (`ModeratorService`: one moderator proposes, a different one approves, the marking-as-executed and the carrying-out in one JDBC transaction; the rule is also in the approving `UPDATE` and a `CHECK` constraint; `AuthFilter` re-checks on every request that the moderator's account is still active; `ModeratorAdminCli` is the operator-only tool, and an architecture test proves nothing in the web application can call the methods that write moderator accounts) · **encryption at rest** (`DataCipher`: AES-256-GCM with a random nonce per value, a key ring whose first key encrypts, one derived key per use, and the column and row id as authenticated associated data, so a ciphertext copied elsewhere does not open; every DAO seals and opens its own columns and takes the id before the insert with `nextval`; `ChainedAuditFileSink` encrypts each audit line while the chain, head record and anchors stay over the plaintext; `SealAtRestCli` converts, checks and re-keys) · the **fix for the targeted sign-in lock-out** (`AuthService`: a returning browser is a trusted device with its own `RateLimiter` bucket and its own OTP challenge; each code is bound to the browser that asked for it; an unknown browser first solves a hashcash-style puzzle, `ProofOfWork`, an HMAC-signed stateless challenge accepted once; `TrustedDeviceDao` stores only a keyed hash of the cookie token; the browser half is `static/js/pow.js`, a hand-written SHA-256 checked against Node's) · the **worker dispute flow** (`ConfirmationResponseService`: ownership checks, a 30-day window and a cap of 3 open disputes enforced with a row lock inside a JDBC transaction, and a database view `counted_attestations` so every score reads one definition of what counts) · and the SQL-concatenation test above. Details: `docs/SECURITY_RUNBOOK.md`, `docs/STRIDE_THREAT_MODEL.md`,
 `docs/PRIVACY_DPDP.md`. **Replay-voice detection** (`assessment/ReplayDetector`, `ReplayChallenge`, `SpokenCode`, `TextShingles`, `dao/ReplayDao`: a stateless HMAC token for the per-question spoken code, keyed one-way hashes of acoustic landmarks and word trigrams searched in single set-based SQL statements, a decision that fails closed; `docs/REPLAY_DETECTION.md`).
-
-## 12. Where the code differs from the Review 1 slides
-
-The deck's snippets are illustrations. The real code is more developed, and in a few places named differently, so you are not caught out in a
-review:
-
-| Slide | The real code |
-|---|---|
-| `abstract int evaluateResponse(String transcript)` | The abstract members are `supportedTrade()` and `feedbackFor(score)`; the shared algorithms `assess(...)` and `summarize(...)` are `final`. Scoring each answer is done by the ML service, and the subclass averages and words the result. |
-| `InvalidOTPException extends Exception` (checked) | All user-defined exceptions extend **`RuntimeException`** (unchecked) and are translated centrally by `ApiErrors`. |
-| `Map<String, TrustScore> trustScores`, `TreeMap` leaderboard | **Not implemented.** The trust score is computed per worker by `ReputationScoring` / `TrustScoreService` and stored in the database; there is no in-memory leaderboard. |
-| `Files.writeString(Paths.get("audit.log"), ...)` | The simple append is `AuditLogWriter`; the audit trail actually used is the hash-chained `ChainedAuditFileSink` plus a database table with append-only triggers. |
-| Servlet at `/attestation` using `req.getParameter` | Servlets live at `/api/...`, read JSON bodies and use CSRF-protected sessions. |
-| JSP with scriptlets (`<%= worker.getSkillScore() %>`) | JSPs use **JSTL / EL** with output escaping and no scriptlets. |
-| Electrician and Plumber only | Six trades: electrician, plumber, carpenter, mason, welder, painter. The rubrics are **TEST ONLY** placeholders until an expert supplies real ones. |
-| `exportPdf` | The method exists and is tested, but only the JSON export is called during credential issue. |
 
 ## Running and testing the Java code
 

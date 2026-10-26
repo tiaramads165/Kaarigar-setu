@@ -22,3 +22,10 @@ build/
 data/
 .DS_Store
 .coverage
+
+# local-only documents, not published
+docs/CONTRIBUTIONS.md
+docs/PROJECT_REVIEW_ROLES.md
+docs/Kaarigar_Setu_Project_Review_Guide.pdf
+docs/Kaarigar_Setu_Java_Implementation.pdf
+docs/Kaarigar_Setu_Security_Status.pdf

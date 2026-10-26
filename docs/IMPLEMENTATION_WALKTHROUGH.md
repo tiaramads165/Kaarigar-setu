@@ -71,7 +71,7 @@ Karigar-Setu-rebuilt/
 
 | Piece | Choice | Why |
 |---|---|---|
-| Web application | Java 17 language level (built with JDK 21), Jakarta Servlet 6, JSP with JSTL, Tomcat 10.1 | the course stack; servlets and JSP are taught and fully inspectable |
+| Web application | Java 17 language level (built with JDK 21), Jakarta Servlet 6, JSP with JSTL, Tomcat 10.1 | a standard, well-documented stack; servlets and JSP are fully inspectable |
 | Data access | plain JDBC with `PreparedStatement`, HikariCP pool | no framework hides the SQL; every query is visible and testable |
 | Database | PostgreSQL 16 | constraints, views, partial indexes, transactions |
 | JSON | Gson | one shared instance; no JSON is built by hand |

@@ -1,4 +1,4 @@
-# Kaarigar Setu: security architecture (for the Information Security course)
+# Kaarigar Setu: security architecture
 
 This page is the map: what is being protected, from whom, which control does what, and which test or script proves it. Details live in the documents it
 links to. Where something is a weakness or only partly done, it says so, because a security design that hides its gaps cannot be reviewed.

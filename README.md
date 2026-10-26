@@ -5,10 +5,9 @@ the answers against a rubric; past employers confirm the work by one-time code; 
 cryptographically signed **Skill & Trust Passport** (with a QR code) can be checked by anyone, no login needed. A human moderator reviews anything
 the fraud model flags.
 
-> **Java features for the CBS 3002 review:** see [README_JAVA_FEATURES.md](README_JAVA_FEATURES.md): the abstract class and polymorphism, user-defined exceptions, Collections, file handling, JDBC, Servlets, JSP and JavaFX, each with a link to the exact code.
+> **Java features:** see [README_JAVA_FEATURES.md](README_JAVA_FEATURES.md): the abstract class and polymorphism, user-defined exceptions, Collections, file handling, JDBC, Servlets, JSP and JavaFX, each with a link to the exact code.
 
-CBS 3002 (Information Security) course project and the base for a real electrician pilot.
-Team: Aayushi Jain (24BBS0164), Ritika Dhiman (24BBS0233), Madhuja (24BBS0128).
+The base for a real electrician pilot.
 
 > **Status:** all ten blueprint phases are implemented and tested (see [`docs/IMPLEMENTATION_STATUS.md`](docs/IMPLEMENTATION_STATUS.md)).
 > **Not yet real:** the electrician rubric is a clearly marked TEST ONLY placeholder (the real one is supplied separately); OTPs are printed to the
@@ -168,7 +167,7 @@ Details and evidence: [`docs/TEST_REPORT.md`](docs/TEST_REPORT.md) section 4 (OW
 
 ## Security review: what was attacked, measured and fixed
 
-For the Information Security course the project was attacked with its own tools, and every weakness found was fixed or written down. Start with [`docs/SECURITY_ARCHITECTURE.md`](docs/SECURITY_ARCHITECTURE.md) (assets, trust boundaries,
+The project was attacked with its own tools, and every weakness found was fixed or written down. Start with [`docs/SECURITY_ARCHITECTURE.md`](docs/SECURITY_ARCHITECTURE.md) (assets, trust boundaries,
 OWASP mapping, attack trees, risk register) and [`docs/PENTEST_REPORT.md`](docs/PENTEST_REPORT.md) (57 attacks, 53 blocked, 4 documented residual, what was found and fixed, what is still open).
 
 * **Credentials anyone can verify**: RFC 8785 canonical signing, a key list, key rotation, a signed revocation list and an independent offline verifier (`scripts/verify_credential.py`); a short-lived **live code** shows whether a credential is being shown by its owner now ([`docs/CREDENTIAL_TRUST.md`](docs/CREDENTIAL_TRUST.md)).

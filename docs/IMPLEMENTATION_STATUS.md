@@ -1,6 +1,6 @@
 # Implementation Status
 
-Phases follow `CBS3002_KaarigarSetu_Implementation_Blueprint`. Phases 0 to 2 were built by the other team members; phases 3 to 9 completed afterwards on top of
+Phases follow the project's implementation blueprint. Phases 0 to 2 are the foundation (project set-up, the core Java classes and the database); phases 3 to 9 were completed on top of
 their code (their schema, DAO signatures and service classes are kept; changes are additive, in `database/migrations/002_security_and_pipeline.sql`).
 "Verified" says how it was checked; see `docs/TEST_REPORT.md` for numbers and for what was not tested.
 
