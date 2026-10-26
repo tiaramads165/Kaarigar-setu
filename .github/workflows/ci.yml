@@ -35,7 +35,7 @@ jobs:
       TEST_DB_USER: ks_test
       TEST_DB_PASSWORD: ks_test
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -65,7 +65,7 @@ jobs:
       run:
         working-directory: kaarigarsetu-ml-service
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -83,7 +83,7 @@ jobs:
     name: Dependency vulnerability scan
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -103,7 +103,7 @@ jobs:
     name: Static analysis, secret scan and SBOM
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0              # gitleaks also reads the history
       - uses: actions/setup-java@v4
@@ -162,7 +162,7 @@ jobs:
       PGPASSWORD: postgres
       DB_NAME: ks_ci
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -215,7 +215,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [java, ml, dependency-scan]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build the application image (also proves the Dockerfile and docker/ files are consistent)
         run: docker build -f kaarigarsetu-java/Dockerfile -t ks-app:ci .
       - name: Build the ML image
@@ -246,7 +246,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [java, ml, dependency-scan, sast, e2e, images]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/download-artifact@v4
         with:
           name: java-build
