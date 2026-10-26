@@ -2,7 +2,7 @@
 # Build context is the REPOSITORY ROOT (see docker-compose.yml): the image also needs docker/ files.
 
 # ---- build: Maven + JDK 21 compiling for the Java 17 API (maven.compiler.release=17) ----
-FROM maven:3.9-eclipse-temurin-21 AS build
+FROM maven:3.9-eclipse-temurin-26 AS build
 WORKDIR /build
 COPY kaarigarsetu-java/pom.xml .
 RUN mvn -B -q dependency:go-offline
