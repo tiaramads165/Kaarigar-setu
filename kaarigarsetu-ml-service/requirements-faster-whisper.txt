@@ -1,0 +1,3 @@
+# Optional: the lightweight speech-to-text engine (STT_PROVIDER=faster-whisper). Replaces openai-whisper + PyTorch (about 1 GB of libraries and 3 GB of RAM).
+faster-whisper==1.2.1
+ctranslate2==4.8.3

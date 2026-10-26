@@ -1,0 +1,4 @@
+# Real speech-to-text; required for hands-on use and in the Docker production image (WITH_WHISPER=1).
+# If pip cannot build it: pip install "setuptools<81" wheel && pip install --no-build-isolation -r requirements-whisper.txt
+# No ffmpeg needed: the service decodes the already-validated WAV itself.
+openai-whisper==20240930

@@ -1,0 +1,8 @@
+# gitleaks configuration: the default rules plus one documented allowance.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Dummy keys in unit tests (obvious patterns, never used outside tests)"
+paths = ['''kaarigarsetu-java/src/test/''']
+regexes = ['''0123456789abcdef0123456789abcdef''', '''ffffffffffffffffffffffffffffffff''']

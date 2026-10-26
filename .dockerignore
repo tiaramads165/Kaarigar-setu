@@ -1,0 +1,15 @@
+**/.git
+**/target
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/.coverage
+data
+.env
+.env.*
+!.env.example
+*.p12
+*.jks
+*.pem
+*.log
+docs

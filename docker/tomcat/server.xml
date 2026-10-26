@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hardened Tomcat 10.1 configuration for the container: no shutdown port, no version banner, no stack traces in
+     error pages, no auto-deploy, access log to stdout. TLS is terminated by the proxy in front (docker/caddy). -->
+<Server port="-1" shutdown="SHUTDOWN">
+  <Service name="Catalina">
+    <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" maxPostSize="2621440"
+               maxHttpHeaderSize="16384" server="Kaarigar" xpoweredBy="false" />
+    <Engine name="Catalina" defaultHost="localhost">
+      <Host name="localhost" appBase="webapps" unpackWARs="false" autoDeploy="false" deployOnStartup="true">
+        <Valve className="org.apache.catalina.valves.ErrorReportValve" showReport="false" showServerInfo="false" />
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="/dev" prefix="stdout" suffix="" fileDateFormat=""
+               pattern="%h %t &quot;%r&quot; %s %b" />
+      </Host>
+    </Engine>
+  </Service>
+</Server>

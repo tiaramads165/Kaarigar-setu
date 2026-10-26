@@ -1,0 +1,8 @@
+[
+  {"key": "electrician", "name": "Electrician", "nameHi": "इलेक्ट्रीशियन"},
+  {"key": "plumber",     "name": "Plumber",     "nameHi": "प्लंबर"},
+  {"key": "carpenter",   "name": "Carpenter",   "nameHi": "बढ़ई"},
+  {"key": "mason",       "name": "Mason",       "nameHi": "राजमिस्त्री"},
+  {"key": "welder",      "name": "Welder",      "nameHi": "वेल्डर"},
+  {"key": "painter",     "name": "Painter",     "nameHi": "पेंटर"}
+]

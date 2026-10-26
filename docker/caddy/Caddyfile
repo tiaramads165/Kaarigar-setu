@@ -1,0 +1,18 @@
+# TLS-terminating reverse proxy: the only service reachable from outside. Tomcat, the ML service and Postgres are
+# on internal networks. For localhost Caddy issues a certificate from its own local CA (browsers will warn until that
+# CA is trusted); set PUBLIC_HOST to a real DNS name and Caddy obtains a public certificate automatically instead.
+{$PUBLIC_HOST:localhost} {
+	encode gzip
+	request_body {
+		max_size 3MB
+	}
+	reverse_proxy app:8080 {
+		# The app trusts the LAST X-Forwarded-For entry (TRUST_FORWARDED_FOR=true), so overwrite whatever the client sent.
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		-Server
+	}
+}
