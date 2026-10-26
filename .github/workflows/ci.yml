@@ -247,7 +247,7 @@ jobs:
     needs: [java, ml, dependency-scan, sast, e2e, images]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: java-build
           path: bundle/java
