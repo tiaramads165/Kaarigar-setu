@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 # ML microservice. Whisper (and its ~2 GB of PyTorch) is opt-in so a demo image stays small:
 #   docker compose build --build-arg WITH_WHISPER=1 ml     (then set STT_PROVIDER=whisper)
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 ARG WITH_WHISPER=0
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1
