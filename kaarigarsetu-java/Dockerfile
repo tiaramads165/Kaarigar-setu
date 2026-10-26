@@ -12,7 +12,7 @@ RUN mvn -B -q -DskipTests package \
  && mkdir /exploded && cd /exploded && jar xf /build/target/kaarigarsetu-java.war
 
 # ---- runtime: Tomcat 10.1 on a JRE, non-root, nothing but the application ----
-FROM tomcat:10.1.60-jre17-temurin
+FROM tomcat:11.0.27-jre17-temurin
 RUN rm -rf /usr/local/tomcat/webapps/* \
  && groupadd --system --gid 10001 ks \
  && useradd --system --uid 10001 --gid ks --home-dir /usr/local/tomcat --shell /usr/sbin/nologin ks \
